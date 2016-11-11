@@ -1,45 +1,45 @@
-html {
-   
+.container-header {
+    background-color: black; /* black background of the top */
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: white; /* sets text to be white */
+    margin-top: 2%; /* creates whitespace at the top */
+    width: auto;
 }
 
-.logo-header {
-    height: 25%;
-    width: 25%;
+.AF-logo-text {
+    position: relative;
+    left: 5%;
+    border-left: 2px solid white;
+    width: 5%;
+    font-weight: 500;
 }
 
-.donate-header {
-    position:  relative;
-  right: 10%;
-  margin-top: -10.5%;
+.mission-statement /* the text specializing in media ... */ {
+    text-align: center; 
+     margin-top: -1%;
+}
+
+.social-media-icons img {
     float: right;
-    font-size: 15px;
+    height: 2.5%;
+    width: 2.5%;
+    margin-left: .4%;
+    border: 2px solid white;
+    border-radius: 7px;   
 }
 
-.center-donate {
-   text-align: center;
+.login-signup-buttons {
+    float: right;
+    margin-right: 2%;
 }
 
-.donate-text {
-    color: orangered;
-    font-size: 150%;
-    text-shadow: 2px 1px 2px red;
-    letter-spacing: 1px;
+.login-signup-buttons a {
+    /* change pre-defined properties of the anchor tag */
+     text-decoration: underline;
+    color: papayawhip;
 }
 
-#donate-button {
-    text-shadow: 3px 2px 3px black;
-    font-size: 375%;
-    color: darkslategrey;
-}
-
-.logo-text {
-    position: absolute;
-    margin-top: 7.5%;
-   opacity: .7;
-letter-spacing: .5px;
-    word-spacing: 4px;
-    text-shadow: 1px 1px 1px black;
-}
 nav ul {
      border-top: 1px solid rgba(0,0,0,.3);
     border-bottom: 1px solid rgba(0,0,0,.3);
@@ -57,6 +57,7 @@ nav ul#main-nav-list li a {
     text-decoration: none;
     color: black;
     font-weight: 800;
+    font-size: 65%;
 }
 
 nav ul#main-nav-list li {
@@ -81,10 +82,49 @@ nav ul#main-nav-list li:first-child {
     left: -15px;
 }
 
-nav ul#main-nav-list li a.has-dropdown:after {
-  color: blue;
-    margin-left: 3px;
-  content: "▼";
+  .carousel-inner > .item > img, /* for bootstrap to center the image and made it larger */
+  .carousel-inner > .item > a > img {
+      width: 50%;
+      margin: auto;
+  }
+
+.floating-information {
+    position: fixed;
+    right: 0%;
+    border: 1px solid black;
+    width: 14%;
+    height: 35%;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 1px 1px gray;
+    background-color: cadetblue;
+    overflow: auto;
 }
 
+.carousel { /* for te bootstrap width */
+    width: 90%;
+}
 
+.event-button, .articles-button, .reviews-button {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.event-button {
+    color: #10C99E;
+    background-color: #4210C9;
+    border-radius: 4px;
+    
+}
+
+.articles-button {
+    color: #9E770D;
+    background-color: #0D339E;
+     border-radius: 4px;
+}
+
+.reviews-button {
+    color: #02B1EB;
+    background-color: #EB3C02;
+     border-radius: 4px;
+}
