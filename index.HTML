@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
 <meta charset = "utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- for mobile -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> for mobile -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    <!-- Jquery library -->
 <link type = "text/css" rel = "stylesheet" href = "default.css">
 <link type = "text/css" rel = "stylesheet" href = "HomepageStyle.css">
@@ -12,7 +12,13 @@
 </head>
 <body>
     
+    <script>
+    /* returns height and width of window 
+        setInterval(function() {alert("Window width " + $(window).width() + " " + " Height " + $(window).height())}, 5000);
+        */
+
     
+    </script>
    
 <div class = "container-header">
     
@@ -21,14 +27,27 @@
         <img src =instagram-256-1.png>
         <img src =tumblr-3-256.png>
        <div class = "login-signup-buttons">
+         <a href = "#"> 
+        Subscribe
+        </a>    
         <a href = "#"> 
         Sign Up
         </a>    
         <br>
-        <a href = "#">    
+        <a href = "#"> 
+       Donate
+        </a>    
+        <a href = "#" id = "login-align">    
         Login
         </a>
+           
         </div>
+    </div>
+    
+      <div class = "search-menu">
+       <form action = "a.php" method = "">
+   Search: <input type = "text"> <input type=image src=http://cliparts.co/cliparts/pT5/oKk/pT5oKkypc.png height = "30px" width = "40px" alt="Submit feedback">
+           </form>
     </div>
 
      <div class = "AF-logo-text"> 
@@ -39,7 +58,7 @@
          
          
 </div>
-  <!-- symbol  🔍 -->
+  
     <div class = "mission-statement"> 
     <i> Specializing in media, events, and juried competitions for artists  </i>
    </div>
@@ -48,9 +67,7 @@
     
 
     
-    
-    
-    
+ 
     
 <nav> <!-- navigation bar -->
     
@@ -76,7 +93,7 @@
     <div class = "shift-left"> 
     <div class = "rotating-images">
         <span id = "left-control"> ⇐ </span>
-         <div class = "annonucements"> Announcements <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit augue, et ultricies tellus. Donec molestie tortor at lacus ultricies posuere. Vivamus risus felis, vehicula facilisis tellus sit amet, vulputate imperdiet lectus. Vivamus sollicitudin pellentesque elit, vel porta nisl rhoncus ut. Sed finibus </div>
+         <div class = "annonucements"> <span id = "announcement-header"> Announcements </span> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit augue, et ultricies tellus. Donec molestie tortor at lacus ultricies posuere. Vivamus risus felis, vehicula facilisis tellus sit amet, vulputate imperdiet lectus. Vivamus sollicitudin pellentesque elit, vel porta nisl rhoncus ut. Sed finibus </div>
         <img src = "https://i.ytimg.com/vi/lE6RYpe9IT0/maxresdefault.jpg">
          
         <div class = "description-generated"> Reviews: <br> Diamond in the sky <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit augue, et ultricies tellus. Donec molestie tortor at lacus ultricies posuere. Vivamus risus felis, vehicula facilisis tellus sit amet, vulputate imperdiet lectus. Vivamus sollicitudin pellentesque elit, vel porta nisl rhoncus ut. Sed finibus odio finibus, dictum dolor a, vulputate neque. Phasellus mattis tortor at. <div class = "read-more"> Read More</div></div>
@@ -118,6 +135,12 @@
   </div>
 </div> 
 
+<div class = "news-column">
+    <span class = "col-sm-3"> <a href = "#"> Listings </a> <br> <img src = "http://webneel.com/daily/sites/default/files/images/daily/10-2013/15-tree-painting.jpg"> </span>
+     <span class = "col-sm-3"> <a href = "#">  Opportunities </a> </span>
+     <span class = "col-sm-3"> <a href = "#"> Twitter Feed? </a> </span>
+     <span class = "col-sm-3"> <a href = "#"> Instagram Feed? </a> </span>
+  </div>
     
 </body>
 
