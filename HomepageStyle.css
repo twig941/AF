@@ -1,283 +1,151 @@
-.container-header {
-    background-color: black; /* black background of the top */
-    padding-top: 1%;
-    padding-bottom: 1%;
-    color: white; /* sets text to be white */
-   
-    width: auto;
+.header-widgets {
+
 }
 
-.AF-logo-text {
-    position: relative;
-    left: 5%;
-    border-left: 2px solid white;
-    width: 5%;
-    font-weight: 800;
-    font-size: 150%;
-}
-
-.mission-statement /* the text specializing in media ... */ {
-    text-align: center; 
-     margin-top: -1%;
-}
-
-.social-media-icons img {
+#float-login {
     float: right;
-    height: 2.5%;
-    width: 2.5%;
-    margin-left: .4%;
-    border: 2px solid white;
-    border-radius: 7px;   
+    font-size: 130%;
+    position: relative;
+    top: 15px;
 }
 
-.login-signup-buttons {
+#donate-link {
     float: right;
     margin-right: 2%;
-    margin-top: 1%;
-    font-size: 115%;
+    font-size: 190%;
+    color: #D95B1C;
+    font-weight: 600;
 }
 
-#login-align {
-    position:relative;
-    left: 14%;
+#subscribe-link {
+    float: right;
+    font-size: 190%;
+    font-weight: 500;
+    margin-right: 7%;
+    color: black;
+}
+/* the twitter, fb, instagram, and search button are all images */
+.header-widgets img {
+    float: right;
+    width: 5%;
+    height: 70px;
 }
 
-.login-signup-buttons a {
-    /* change pre-defined properties of the anchor tag */
-     text-decoration: underline;
-    color: papayawhip;
-    margin-left: 7px;
+.AF-logo {
+    border-right: 1px solid black;
+    color: whitesmoke;
+    display: inline-block; /* must be display block so border right wont go to the end of the page */
+    border-right: 2px solid white;
+    text-align: right;
+    margin-left: 3%;
+    font-size: 130%;
+    font-weight: 600;
+    position: relative;
+    right: 3px;
 }
 
-form {
-    /* center the search menu */
-position: absolute;
- left: 40%;
-}
-
-
-
-.search-menu input[type = "text"] {
-    border: 1px solid black;
-}
-
-.search-menu input[type = "image"] {
-   position: relative;
-    top: 7px;
+.pad-border {
+    /* makes the span tag hidden so the word 'a' provides space between the word and the border on the right */
+    visibility: hidden;
 }
 
 nav {
-    margin-top: 1%;
+    margin-top: 3%;
+    background-color: black;
+    padding-top: 5px;
+    padding-bottom: 12px;
+}
+
+nav ul, nav li {
+    display: inline-block;
+    margin-left: 20px;
+   
 }
 
 nav ul {
-     border-top: 1px solid rgba(0,0,0,.3);
-    border-bottom: 1px solid rgba(0,0,0,.3);
-    margin-left: 3%;
-    margin-right: 3%;
-}
-
-nav ul#main-nav-list {
-    list-style-type: none;
-    text-align: center; /* centers nav bar */   
-}
-
-nav ul#main-nav-list li a {
-    /* gets rid of defualt a properties */
-    text-decoration: none;
-    color: black;
-    font-weight: 800;
-    font-size: 105%;
-}
-
-nav ul#main-nav-list li {
-    display: inline-block; /*align nav items in one row */
-    /* both margins create space from the border to the text */
-    margin-top: 1%;
-    margin-bottom: 1%; 
-}
-
-/* creates balance from left and right of the borders */
-nav ul#main-nav-list li:not(:first-child) {
-    margin-left: 3%;
-}
-/* creates balance from left and right of the borders */
-nav ul#main-nav-list li:last-child {
-   position: relative;
-    left: -15px;
-}
-/* creates balance from left and right of the borders */
-nav ul#main-nav-list li:first-child {
-   position: relative;
-    left: -15px;
-}
-
-  .carousel-inner > .item > img, /* for bootstrap to center the image and made it larger */
-  .carousel-inner > .item > a > img {
-      width: 50%;
-      margin: auto;
-  }
-
-.floating-information {
-    position: fixed;
-    right: 0%;
-    border: 1px solid black;
-    width: 14%;
-    height: 35%;
-    text-align: center;
-    border-radius: 25px;
-    box-shadow: 1px 1px gray;
-    background-color: cadetblue;
-    overflow: auto;
-}
-
-.carousel { /* for te bootstrap width */
-    width: 100%; /* if uncommenting the fixed event and announcement bar make this to 90% */
-}
-
-.event-button, .articles-button, .reviews-button {
-    display: inline-block;
-    cursor: pointer;
-}
-
-.event-button {
-    color: #10C99E;
-    background-color: #4210C9;
-    border-radius: 4px;
+    position: relative;
+    top: -20px;
     
 }
 
-.articles-button {
-    color: #9E770D;
-    background-color: #0D339E;
-     border-radius: 4px;
-}
-
-.reviews-button {
-    color: #02B1EB;
-    background-color: #EB3C02;
-     border-radius: 4px;
-}
-
-#generated-video {
-    position: relative;
-    left: 14%;
-    width: 35%;
-    height: 500px;
-}
-
-
-
-#left-control-video {
-    position: relative;
-    left: 14%;
-    font-size: 500%;
-}
-
-#right-control-video {
-    font-size: 500%;
-    position: relative;
-    left: 28%;
-}
-
-.AFTV-number {
-    font-size: 25%; /* gets rid of 500% size font on the element */
-}
-
-.contain-vid {
-    margin-top: 3%;
-}
-
-.video-descripton {
-    position: absolute;
-    left: 50%;
-    margin-top: 3%;
-}
-
-@media screen and (max-width: 1903px) {
-    .video-descripton {
-         left: 75%;
-    }
-}
-
-.rotating-container {
-    margin-top: 2%;
-}
-
-.line-break {
-    /* same color and margins as the nav bar */
-   border-bottom: 1px solid rgba(0,0,0,.5);
-    padding-bottom: 3%;
-    margin-left: 4%;
-    margin-right: 4%;
-}
-
-.shift-left {
-    position: relative;
-    left: 5%;
-}
-
-.rotating-images img {
-   max-width: 35%;
-    border-radius: 7px;
-}
-
-.description-generated {
-    position: absolute;
-    display: inline-block;
-    margin-left: 3%;
-    margin-top: 1%;
-    width: 25%;
-    
-}
-
-.read-more {
-    background-color: dodgerblue;
-    border: 1px solid #C0C0C0;
-    color: wheat;
-    text-align: center;
-    width: 30%;
-    font-size: 135%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-radius: 15px;
-    margin-left: 2%;
-}
-
-#left-control, #right-control {
-    font-size: 350%;
-}
-
-#right-control {
-   position: relative;
-    left: 25%;
-}
-
-.annonucements {
-  float: left;
-    position: relative;
-    right: 0%;
-    width: 17%;
-    height: 450px;
-    overflow: auto;
-    text-align: center;
-}
-
-#announcement-header {
-    font-size: 150%;
-    color: orangered;
+nav ul li a {
+    color: white;
+    font-size: 130%;
     font-weight: 700;
 }
 
-.news-column {
+.rotating-area {
+    margin-top: 1%;
+}
+.rotating-area img {
+    width: 50%;
+    height: 100%;
+    margin-left: 1%;
+}
+
+#image2, #image3, #image4 {
+    /* remove the images from the flow of the page and retrive them with js */
+    display: none;
+}
+.image-info {
+    display: inline-block;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 10%;
+}
+
+#review-label, #team-label {
+    color: forestgreen;
+    font-size: 120%;
+    font-weight: 600;
+}
+
+#team-label {
+    color: grey;
+}
+
+.readmore-button {
+    border: 1px solid gray;
+    width: 20%;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    box-shadow: 1px 1px black;
+    margin-top: 2%;
+}
+
+.readmore-button a {
+    color: dimgray;
+}
+
+.circle {
+    background-color: tan;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+.current-picture {
+    display: inline-block;
+   position: relative;  
+}
+
+.rotating-area-controls {
     text-align: center;
 }
 
-.news-column a {
-    font-size: 200%;
+span.glyphicon-menu-left {
+    float: left;
+    font-size: 275%; /*changes font-size of the icons */
+    color: rgba(128,128,128, .7);
+}
+span.glyphicon-menu-right {
+    float: right;
+    font-size: 275%; /*changes font-size of the icons */
+    color: rgba(128,128,128, .7);
 }
 
-.news-column img {
-    width: 90%;
-    height: 100%;
-}

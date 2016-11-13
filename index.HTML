@@ -11,136 +11,92 @@
 <title> Home </title>
 </head>
 <body>
-    
+
     <script>
-    /* returns height and width of window 
-        setInterval(function() {alert("Window width " + $(window).width() + " " + " Height " + $(window).height())}, 5000);
-        */
-
-    
-    </script>
-   
-<div class = "container-header">
-    
-    <div class = "social-media-icons">
-        <img src = facebook-3-256.png>
-        <img src =instagram-256-1.png>
-        <img src =tumblr-3-256.png>
-       <div class = "login-signup-buttons">
-         <a href = "#"> 
-        Subscribe
-        </a>    
-        <a href = "#"> 
-        Sign Up
-        </a>    
-        <br>
-        <a href = "#"> 
-       Donate
-        </a>    
-        <a href = "#" id = "login-align">    
-        Login
-        </a>
+        /*jquery code for swapping images */
+        $(document).ready(function() {
            
-        </div>
-    </div>
-    
-      <div class = "search-menu">
-       <form action = "a.php" method = "">
-   Search: <input type = "text"> <input type=image src=http://cliparts.co/cliparts/pT5/oKk/pT5oKkypc.png height = "30px" width = "40px" alt="Submit feedback">
-           </form>
-    </div>
-
-     <div class = "AF-logo-text"> 
-     THE  <br>
-     ARTISTS
-      <br>   
-     FORUM 
-         
-         
-</div>
-  
-    <div class = "mission-statement"> 
-    <i> Specializing in media, events, and juried competitions for artists  </i>
-   </div>
-     
-    </div>
-    
-
-    
- 
-    
-<nav> <!-- navigation bar -->
-    
-    
-<ul id = "main-nav-list">
-<li><a href = "#">HOME </a> </li>
-<li><a class = "has-dropdown" href = "#">ABOUT AF</a> </li>
-<li><a class = "has-dropdown" href = "#">AF MAGAZINE</a> </li>
-<li><a href = "#">AFTV</a> </li>
-<li><a class = "has-dropdown" href = "#">AF EVENTS</a> </li>
-<li><a href = "#">AF COMPETITIONS</a> </li>
-<li><a class = "has-dropdown" href = "#">RESOURCES</a> </li>
-<li><a href = "#">EVENT LISTINGS</a> </li>
-<li><a class = "has-dropdown" href = "#">SUPPORT AF</a> </li>
-<!-- <li><a class = "has-dropdown" href = "#">Contact Us</a> </li> -->
-</ul>    
-    
-    
-    
-</nav>
-    
-    <div class = "rotating-container">
-    <div class = "shift-left"> 
-    <div class = "rotating-images">
-        <span id = "left-control"> ⇐ </span>
-         <div class = "annonucements"> <span id = "announcement-header"> Announcements </span> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit augue, et ultricies tellus. Donec molestie tortor at lacus ultricies posuere. Vivamus risus felis, vehicula facilisis tellus sit amet, vulputate imperdiet lectus. Vivamus sollicitudin pellentesque elit, vel porta nisl rhoncus ut. Sed finibus </div>
-        <img src = "https://i.ytimg.com/vi/lE6RYpe9IT0/maxresdefault.jpg">
-         
-        <div class = "description-generated"> Reviews: <br> Diamond in the sky <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit augue, et ultricies tellus. Donec molestie tortor at lacus ultricies posuere. Vivamus risus felis, vehicula facilisis tellus sit amet, vulputate imperdiet lectus. Vivamus sollicitudin pellentesque elit, vel porta nisl rhoncus ut. Sed finibus odio finibus, dictum dolor a, vulputate neque. Phasellus mattis tortor at. <div class = "read-more"> Read More</div></div>
-      
-        <span id = "right-control"> ⇒ </span>
-    </div>
-        </div>
-    </div>
-    
-    <div class = "line-break">
-    
-    
-    </div>
-    
-    
-    <!--
-    <div class = "floating-information">
-    <div class = "event-button"> events </div>
-    <div class = "articles-button"> articles </div>
-    <div class = "reviews-button"> reviews </div>
-        CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED CONTENT TO BE GENERATED
-    </div>
-    -->
-    
-
-  
-     
-     
-<!-- where videos will be generated -->
-
-<div class = "contain-vid">
-      <div class = "video-descripton"> AFTV Number 68:<br> Members: <br> Names involved:</div>
-<iframe id = "generated-video" src="https://www.youtube.com/embed/kkWi4-xAqds">
-</iframe>
-    
+            setInterval(function() {
+            var currentImage = [];
+            
+            
+            
+        }, 5000             
+        ); //end of setInterval
+        }); //end of document.ready
+    </script>
+       <!-- header widgets like the donate button, facebook, twitter, and youtube icons -->
+    <div class = "header-widgets">
+    <img id = "youtube-icon" src = "YouTube_BLACK.png">
+    <img id = "instagram-icon"  src = "Instagram_BLACK.png">
+    <img src = "Facebook_BLACK.png">
+    <img src = "Twitter_BLACK.png">
+    <span id = "float-login"> Log In/Sign In</span>
+    <img src = "http://imageog.flaticon.com/icons/png/512/49/49116.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF">
     <div>
-     <span id = "left-control-video"> ⇐ <span class = "AFTV-number">AFTV 69  (from DB) </span> </span>
-     <span id = "right-control-video"> <span class = "AFTV-number"> AFTV 67 (from DB) </span> ⇒ </span>
-  </div>
-</div> 
-
-<div class = "news-column">
-    <span class = "col-sm-3"> <a href = "#"> Listings </a> <br> <img src = "http://webneel.com/daily/sites/default/files/images/daily/10-2013/15-tree-painting.jpg"> </span>
-     <span class = "col-sm-3"> <a href = "#">  Opportunities </a> </span>
-     <span class = "col-sm-3"> <a href = "#"> Twitter Feed? </a> </span>
-     <span class = "col-sm-3"> <a href = "#"> Instagram Feed? </a> </span>
-  </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a id = "donate-link" href = "#"> Donate </a>
+        <a id = "subscribe-link" href = "#"> Subscribe </a>
+    </div>
+    </div>
+    
+    <nav>
+        <div class = "AF-logo">
+        The<span class = "pad-border"> a  </span>  <br>
+        Artists <span class = "pad-border"> a  </span>  <br>
+        Forum <span class = "pad-border"> a  </span> 
+        </div>
+        
+        <!-- nav bar list -->
+        <ul>
+        <li> <a href = "#">HOME</a> </li>
+        <li> <a href = "#">ABOUT</a> </li>
+        <li> <a href = "#">AF MAG</a> </li>
+        <li> <a href = "#">AFTV</a> </li>
+        <li> <a href = "#">EVENTS</a> </li>
+        <li> <a href = "#">COMPETITIONS</a> </li>
+        <li> <a href = "#">RESOURCES</a> </li>
+        <li> <a href = "#">LISTINGS</a> </li>
+        <li> <a href = "#">SUPPORT AF</a> </li>
+        </ul>
+    
+    </nav>
+    
+    <div class = "rotating-area">
+    
+    <img id = "image1" src = http://www.mrwallpaper.com/wallpapers/forest-trees-waterfall.jpg>
+    <img id = "image2" src = http://wallpapercave.com/wp/v6dkdkN.jpg>
+    <img id = "image3" src = https://c1.staticflickr.com/1/25/44040866_f74b3a3fd3_b.jpg>
+    <img id = "image4" src = http://images.nationalgeographic.com/wpf/media-live/photos/000/894/overrides/glacier-national-park-hidden-lake_89495_600x450.jpg>
+        <div class = "image-info"> 
+          <span id = "review-label">REVIEWS:</span>
+            <br>
+           <span id = "team-label">ARTISTS TEAM MEMBERS</span>
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
+        
+        <div class = "readmore-button"> <a href = "#"> READ MORE </a> </div>
+        
+        </div> <!-- end image info div -->
+        
+    <div class = "rotating-area-controls"> 
+        
+        <span class = "glyphicon glyphicon-menu-left"> </span> 
+         <span class = "glyphicon glyphicon-menu-right"> </span> 
+        <div class = "current-picture">
+        <div class = "circle"></div>
+        <div class = "circle"></div>
+        <div class = "circle"></div>
+        <div class = "circle"></div>
+          
+        </div>
+    </div>
+        
+        
+    </div> <!-- end div of rotating image -->
     
 </body>
 
