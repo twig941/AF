@@ -79,12 +79,16 @@ nav ul li a {
 }
 .rotating-area img {
     width: 50%;
-    height: 100%;
+    height: 500px;
     margin-left: 1%;
 }
 
 #image2, #image3, #image4 {
     /* remove the images from the flow of the page and retrive them with js */
+    display: none;
+}
+
+#text2, #text3, #text4 {
     display: none;
 }
 .image-info {
@@ -127,6 +131,11 @@ nav ul li a {
     display: inline-block;
     border: 1px solid black;
     margin-right: 20px;
+    cursor: pointer;
+}
+
+#circle1 {
+    background-color: black;
 }
 
 .current-picture {
@@ -142,10 +151,51 @@ span.glyphicon-menu-left {
     float: left;
     font-size: 275%; /*changes font-size of the icons */
     color: rgba(128,128,128, .7);
+    cursor: pointer;
 }
 span.glyphicon-menu-right {
     float: right;
     font-size: 275%; /*changes font-size of the icons */
     color: rgba(128,128,128, .7);
+    cursor: pointer;
 }
 
+.videoArea{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.videoItem{
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.videoDesc{
+    width: 30%;
+    margin-left: 5%;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.vertical-line{
+    width: 1px; 
+    background-color: black; 
+    height: 100%; 
+    float: left;
+    vertical-align: text-top;
+    display: inline-block;
+}
+.vertical_line{
+    border-left: thick solid #D3D3D3;
+    vertical-align: text-top;
+    display: inline-block;
+}
+.vertical_line .announcementArea {
+    vertical-align: text-top;
+    display: inline-block;
+    text-align: center;
+    padding-left: 30%;
+}
+.vertical_line .announcementArea h3{
+    color: #ef9c15;
+}

@@ -14,15 +14,90 @@
 
     <script>
         /*jquery code for swapping images */
+        var timeForInterval = 5000;
         $(document).ready(function() {
+           var currentImage = 0;
+            var imageToShow = ["#image1", "#image2", "#image3", "#image4"];
+            var currentCircule = ["#circle1", "#circle2", "#circle3", "#circle4"];
+            var currentText = ["#text1", "#text2", "#text3", "#text4"];
+            
+   var cycleInterval = setInterval(function() {
            
-            setInterval(function() {
-            var currentImage = [];
+            $(imageToShow[currentImage]).fadeOut(0);  
+            $(currentText[currentImage]).fadeOut(0);
+           $(currentCircule[currentImage]).css("background-color", "tan");
+            currentImage++;
+            if (currentImage == 4)  currentImage = 0;
+       $(currentText[currentImage]).fadeIn(1000);
+            $(imageToShow[currentImage]).fadeIn(1000);
+            $(currentCircule[currentImage]).css("background-color", "black");
+         timeForInterval  = 5000;
             
             
-            
-        }, 5000             
+        }, timeForInterval             
         ); //end of setInterval
+            
+           
+            
+        $("span.glyphicon-menu-left").click(function() {
+            
+            $(imageToShow[currentImage]).fadeOut(0);
+            $(currentText[currentImage]).fadeOut(0, function() {
+                   $(currentCircule[currentImage]).css("background-color", "tan");
+            currentImage--;
+             
+            if (currentImage == -1)  currentImage = 3;
+            $(imageToShow[currentImage]).fadeIn(1000);
+            $(currentText[currentImage]).fadeIn(1000);
+            $(currentCircule[currentImage]).css("background-color", "black");
+            clearInterval(cycleInterval);
+            });
+        });
+             $("span.glyphicon-menu-right").click(function() {
+            $(currentCircule[currentImage]).css("background-color", "tan");
+                 $(currentText[currentImage]).fadeOut(0);
+            $(imageToShow[currentImage]).fadeOut(0, function() {
+                  currentImage++;
+            if (currentImage == 4)  currentImage = 0;
+            $(currentCircule[currentImage]).css("background-color", "black");
+            $(imageToShow[currentImage]).fadeIn(1000);
+                  $(currentText[currentImage]).fadeIn(1000);
+            clearInterval(cycleInterval);
+            });
+          
+            
+        });
+            
+            
+            /* join the array of the circle selector, then get the one that's clicked on by its id,
+            then select the last char of it which will be a number, and make it an integer, subtract one and that 
+            is the index to show the image from */
+            var allCircleSelector = currentCircule.join(",");
+              function currentCircleClicked(imageIndex, circleIndex) {
+                   $(imageToShow[imageIndex]).fadeOut(0); 
+                /* callback is used here to prevent a glitch of images and text being pushed down when images are swaped */
+            $(currentText[imageIndex]).fadeOut(0, "swing", function() {
+                $(currentCircule[imageIndex]).css("background-color", "tan");
+       $(currentText[circleIndex]).fadeIn(1000);
+            $(imageToShow[circleIndex]).fadeIn(1000);
+            $(currentCircule[circleIndex]).css("background-color", "black");
+                    clearInterval(cycleInterval);
+            });
+           
+            }
+           $(allCircleSelector).click(function() {
+              var circleClicked = this.id;
+              var circleArrayIndex = parseInt(circleClicked.substring(circleClicked.length - 1, circleClicked.length)) - 1;
+             //  alert(imageToShow[circleArrayIndex]);
+               
+              // alert(circleArrayIndex);
+               if (circleClicked == "circle1")  currentCircleClicked(currentImage, circleArrayIndex);
+               else if (circleClicked == "circle2")  currentCircleClicked(currentImage, circleArrayIndex);
+               else if (circleClicked == "circle3") currentCircleClicked(currentImage, circleArrayIndex);
+               else if (circleClicked == "circle4") currentCircleClicked(currentImage, circleArrayIndex);
+                currentImage = circleArrayIndex;   
+           });
+            
         }); //end of document.ready
     </script>
        <!-- header widgets like the donate button, facebook, twitter, and youtube icons -->
@@ -76,8 +151,22 @@
             <br>
            <span id = "team-label">ARTISTS TEAM MEMBERS</span>
             <br>
+            <div id = "text1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
-        
+        </div>
+            
+              <div id = "text2">
+           ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        </div>
+            
+              <div id = "text3">
+          dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada
+        </div>
+            
+              <div id = "text4">
+            fafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafa
+        </div>
+            
         <div class = "readmore-button"> <a href = "#"> READ MORE </a> </div>
         
         </div> <!-- end image info div -->
@@ -87,16 +176,41 @@
         <span class = "glyphicon glyphicon-menu-left"> </span> 
          <span class = "glyphicon glyphicon-menu-right"> </span> 
         <div class = "current-picture">
-        <div class = "circle"></div>
-        <div class = "circle"></div>
-        <div class = "circle"></div>
-        <div class = "circle"></div>
+        <div id = "circle1" class = "circle"></div>
+        <div id = "circle2" class = "circle"></div>
+        <div id = "circle3" class = "circle"></div>
+        <div id = "circle4" class = "circle"></div>
           
         </div>
     </div>
         
         
     </div> <!-- end div of rotating image -->
+    
+    <hr>
+    <div class = "videoArea">
+    	<div class = "videoItem">
+            <iframe width="420" height="345" control src="https://www.youtube.com/embed/XGSy3_Czz8k">
+            </iframe>
+    	</div>
+    	<div class = "videoDesc">
+    		<p>AFTV 73</p>
+            <p>ARTISTS TEAM MEMBERS</p>
+            <p>#AFTVNYC</p>
+            <p>Host REBECCA L. HARGROVE interview attorney CHRISTOPHER J.P MITCHELL, ESQ about this important legal work which helps artists protect their rights and works, Rebecca also interviews arts & culture producer LEANNE STELLA from Art in FLUX about her work with HarLem based artists.</p>
+    	</div>
+
+    	<div class = "announcement">
+         <div class = "announcementArea">
+            <h3>ANNOUNCEMENT</h3>
+            <h4>CALL FOR ENTRIES:</h4>
+            <p class = "content_with_underline">The Artists Forum Festival of the Moving image:2017</p>
+            <p class = "content_with_underline">Volunteer and intern positions available</p>
+            <p>Check out our winners from the inaugural season of The Artists Forum Festival of the Moving Image: 2016!</p>
+        </div>   
+        </div>
+    </div>
+    <hr>
     
 </body>
 
