@@ -1,17 +1,45 @@
-.header-widgets {
+[class*="col-"] {
+    width: 100%;
+}
 
+[class*="col-"] {
+   float: right;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
 }
 
 #float-login {
     float: right;
     font-size: 130%;
     position: relative;
-    top: 15px;
+    height: auto;
+    top: 5px;
 }
 
 #donate-link {
     float: right;
-    margin-right: 2%;
+    margin-right: 2px;
     font-size: 190%;
     color: #D95B1C;
     font-weight: 600;
@@ -20,34 +48,36 @@
 #subscribe-link {
     float: right;
     font-size: 190%;
-    font-weight: 500;
-    margin-right: 7%;
+    font-weight: 600;
+    margin-right: 1%;
     color: black;
+}
+
+@keyframes spinAround {
+    0% {transform: rotateY(0deg);}
+  
+    100% {transform: rotateY(360deg); }
 }
 /* the twitter, fb, instagram, and search button are all images */
 .header-widgets img {
     float: right;
-    width: 5%;
+    width: 3%;
     height: 70px;
+    margin-left: 5px;
 }
+    
+.header-widgets img:hover {
+        animation: spinAround;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 
 .AF-logo {
-    border-right: 1px solid black;
-    color: whitesmoke;
-    display: inline-block; /* must be display block so border right wont go to the end of the page */
-    border-right: 2px solid white;
-    text-align: right;
-    margin-left: 3%;
-    font-size: 130%;
-    font-weight: 600;
-    position: relative;
-    right: 3px;
+   width: 12%;
+    height: auto;
 }
 
-.pad-border {
-    /* makes the span tag hidden so the word 'a' provides space between the word and the border on the right */
-    visibility: hidden;
-}
 
 nav {
     margin-top: 3%;
@@ -56,22 +86,35 @@ nav {
     padding-bottom: 12px;
 }
 
-nav ul, nav li {
-    display: inline-block;
+ nav li:not(:first-child) {
     margin-left: 20px;
-   
+}
+
+nav li {
+    display: inline-block;
 }
 
 nav ul {
-    position: relative;
-    top: -20px;
-    
+    list-style-type: none;
+     display: inline-block; 
 }
+
+
 
 nav ul li a {
     color: white;
     font-size: 130%;
-    font-weight: 700;
+    font-weight: 800;
+   
+}
+
+nav ul li a:hover {
+    color: white;
+    border-bottom: 5px ridge white;
+}
+nav ul li:hover {
+    transform: translateY(-3px);
+    
 }
 
 .rotating-area {
@@ -102,7 +145,7 @@ nav ul li a {
 #review-label, #team-label {
     color: forestgreen;
     font-size: 120%;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 #team-label {
@@ -149,14 +192,15 @@ nav ul li a {
 
 span.glyphicon-menu-left {
     float: left;
-    font-size: 275%; /*changes font-size of the icons */
-    color: rgba(128,128,128, .7);
+    font-size: 205%; /*changes font-size of the icons */
+    color: rgba(0,0,0, .7);
     cursor: pointer;
 }
 span.glyphicon-menu-right {
     float: right;
-    font-size: 275%; /*changes font-size of the icons */
-    color: rgba(128,128,128, .7);
+    font-size: 205%; /*changes font-size of the icons */
+   /* color: rgba(128,128,128, .7); */
+    color: rgba(0,0,0, .7);
     cursor: pointer;
 }
 
@@ -199,3 +243,59 @@ span.glyphicon-menu-right {
 .vertical_line .announcementArea h3{
     color: #ef9c15;
 }
+
+iframe {
+    width: 40%;
+    height: 500px;
+    margin-left: 1%;
+    display: inline-block;
+}
+
+#video-description {
+    width: 38%;
+    float: left;
+    margin-top: 1%;
+}
+
+#review-label, #team-label {
+    width: 38%;
+  
+}
+
+
+
+.video-info {
+   position: absolute;
+    display: inline-block;
+    margin-left: 2%;
+     
+}
+
+.announcement-info {
+    display: inline-block;
+    position:absolute;
+    text-align: center;
+      margin-right: 5%;
+
+}
+
+#announcement {
+    float: right;
+   width: 55%;
+    margin-top:1%;
+    
+    
+}
+#announcement-label, #more-announcements {
+    float: right;
+   width: 55%; 
+    margin-top: 1%;
+}
+
+#announcement-label {
+    color: goldenrod;
+    font-weight: bold;
+    font-size: 135%;
+}
+
+

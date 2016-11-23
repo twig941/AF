@@ -14,116 +14,136 @@
 
     <script>
         /*jquery code for swapping images */
-        var timeForInterval = 5000;
         $(document).ready(function() {
-           var currentImage = 0;
+             var timeForInterval = 5000;
+               function ImageSlider(currentImage) {
+                   
+            this.currentImage = currentImage; //global to the whole function */
             var imageToShow = ["#image1", "#image2", "#image3", "#image4"];
             var currentCircule = ["#circle1", "#circle2", "#circle3", "#circle4"];
+            var fadeOutTime = 0;
+            var fadeInTime = 200;
+            this.getCurrentCircle = function() {
+               return currentCircule;
+            };
+            this.getCurrentImage = function() {
+                return currentImage;
+            };
+            this.setCurrentImage = function(cImage) {
+                currentImage = cImage;
+            }
             var currentText = ["#text1", "#text2", "#text3", "#text4"];
-            
-   var cycleInterval = setInterval(function() {
-           
-            $(imageToShow[currentImage]).fadeOut(0);  
-            $(currentText[currentImage]).fadeOut(0);
-           $(currentCircule[currentImage]).css("background-color", "tan");
+                   /* assign when to go back to the first image or to the last one to not get an error */
+            this.cycleRight = function(conditional, conditionalAssignment) {
+            $(imageToShow[currentImage]).fadeOut(fadeOutTime);  
+            $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
+            $(currentCircule[currentImage]).css("background-color", "tan");
             currentImage++;
-            if (currentImage == 4)  currentImage = 0;
-       $(currentText[currentImage]).fadeIn(1000);
-            $(imageToShow[currentImage]).fadeIn(1000);
+            if (currentImage == conditional)  currentImage = conditionalAssignment;
+            $(currentText[currentImage]).fadeIn(fadeInTime);
+            $(imageToShow[currentImage]).fadeIn(fadeInTime);
             $(currentCircule[currentImage]).css("background-color", "black");
-         timeForInterval  = 5000;
-            
-            
+            });
+            };
+            this.clickCycleRight = function(conditional, conditionalAssignment) {
+                this.cycleRight(conditional, conditionalAssignment);
+                clearInterval(cycleInterval);
+            };
+                   
+            this.clickCycleLeft = function(conditional, conditionalAssignment) {
+            $(imageToShow[currentImage]).fadeOut(fadeOutTime);
+            $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
+            $(currentCircule[currentImage]).css("background-color", "tan");
+            currentImage--;
+             
+            if (currentImage == conditional)  currentImage = conditionalAssignment;
+            $(imageToShow[currentImage]).fadeIn(fadeInTime);
+            $(currentText[currentImage]).fadeIn(fadeInTime);
+            $(currentCircule[currentImage]).css("background-color", "black");
+            clearInterval(cycleInterval);         
+            }); //end of callback
+    };
+           this.currentCircle =  function currentCircleClicked(imageIndex, circleIndex) {
+                   $(imageToShow[imageIndex]).fadeOut(fadeOutTime); 
+                /* callback is used here to prevent a glitch of images and text being pushed down when images are swaped */
+            $(currentText[imageIndex]).fadeOut(fadeOutTime, "swing", function() {
+                $(currentCircule[imageIndex]).css("background-color", "tan");
+       $(currentText[circleIndex]).fadeIn(fadeInTime);
+            $(imageToShow[circleIndex]).fadeIn(fadeInTime);
+            $(currentCircule[circleIndex]).css("background-color", "black");
+                    clearInterval(cycleInterval);
+            });
+           
+            };         
+}
+   var rotatingImage = new ImageSlider(0); 
+   var cycleInterval = setInterval(function() {
+          rotatingImage.cycleRight(4, 0);   
         }, timeForInterval             
         ); //end of setInterval
             
            
             
         $("span.glyphicon-menu-left").click(function() {
-            
-            $(imageToShow[currentImage]).fadeOut(0);
-            $(currentText[currentImage]).fadeOut(0, function() {
-                   $(currentCircule[currentImage]).css("background-color", "tan");
-            currentImage--;
-             
-            if (currentImage == -1)  currentImage = 3;
-            $(imageToShow[currentImage]).fadeIn(1000);
-            $(currentText[currentImage]).fadeIn(1000);
-            $(currentCircule[currentImage]).css("background-color", "black");
-            clearInterval(cycleInterval);
-            });
+           rotatingImage.clickCycleLeft(-1, 3);
         });
              $("span.glyphicon-menu-right").click(function() {
-            $(currentCircule[currentImage]).css("background-color", "tan");
-                 $(currentText[currentImage]).fadeOut(0);
-            $(imageToShow[currentImage]).fadeOut(0, function() {
-                  currentImage++;
-            if (currentImage == 4)  currentImage = 0;
-            $(currentCircule[currentImage]).css("background-color", "black");
-            $(imageToShow[currentImage]).fadeIn(1000);
-                  $(currentText[currentImage]).fadeIn(1000);
-            clearInterval(cycleInterval);
+            rotatingImage.clickCycleRight(4, 0);
             });
-          
-            
-        });
-            
-            
             /* join the array of the circle selector, then get the one that's clicked on by its id,
             then select the last char of it which will be a number, and make it an integer, subtract one and that 
             is the index to show the image from */
-            var allCircleSelector = currentCircule.join(",");
-              function currentCircleClicked(imageIndex, circleIndex) {
-                   $(imageToShow[imageIndex]).fadeOut(0); 
-                /* callback is used here to prevent a glitch of images and text being pushed down when images are swaped */
-            $(currentText[imageIndex]).fadeOut(0, "swing", function() {
-                $(currentCircule[imageIndex]).css("background-color", "tan");
-       $(currentText[circleIndex]).fadeIn(1000);
-            $(imageToShow[circleIndex]).fadeIn(1000);
-            $(currentCircule[circleIndex]).css("background-color", "black");
-                    clearInterval(cycleInterval);
-            });
-           
-            }
+            var allCircleSelector = rotatingImage.getCurrentCircle().join(",");
            $(allCircleSelector).click(function() {
               var circleClicked = this.id;
               var circleArrayIndex = parseInt(circleClicked.substring(circleClicked.length - 1, circleClicked.length)) - 1;
              //  alert(imageToShow[circleArrayIndex]);
                
               // alert(circleArrayIndex);
-               if (circleClicked == "circle1")  currentCircleClicked(currentImage, circleArrayIndex);
-               else if (circleClicked == "circle2")  currentCircleClicked(currentImage, circleArrayIndex);
-               else if (circleClicked == "circle3") currentCircleClicked(currentImage, circleArrayIndex);
-               else if (circleClicked == "circle4") currentCircleClicked(currentImage, circleArrayIndex);
-                currentImage = circleArrayIndex;   
+               if (circleClicked == "circle1")  rotatingImage.currentCircle(rotatingImage.getCurrentImage(), circleArrayIndex);
+               else if (circleClicked == "circle2")  rotatingImage.currentCircle(rotatingImage.getCurrentImage(), circleArrayIndex);
+               else if (circleClicked == "circle3") rotatingImage.currentCircle(rotatingImage.getCurrentImage(), circleArrayIndex);
+               else if (circleClicked == "circle4") rotatingImage.currentCircle(rotatingImage.getCurrentImage(), circleArrayIndex);
+                rotatingImage.setCurrentImage(circleArrayIndex);   
            });
+            /* make the header widgets squares, one can put this in a scroll event to fix them from strectching when the users zooms in */
+            var widthOfIcon = $("#youtube-icon").width();
+          $(".header-widgets img").css("height", widthOfIcon);
             
         }); //end of document.ready
     </script>
        <!-- header widgets like the donate button, facebook, twitter, and youtube icons -->
     <div class = "header-widgets">
+        
+        
+        
+      
     <img id = "youtube-icon" src = "YouTube_BLACK.png">
     <img id = "instagram-icon"  src = "Instagram_BLACK.png">
     <img src = "Facebook_BLACK.png">
     <img src = "Twitter_BLACK.png">
-    <span id = "float-login"> Log In/Sign In</span>
+          
+    <span id = "float-login"> LOG IN</span>
+          
     <img src = "http://imageog.flaticon.com/icons/png/512/49/49116.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF">
+           
     <div>
+      
         <br>
         <br>
         <br>
-        <br>
-        <a id = "donate-link" href = "#"> Donate </a>
-        <a id = "subscribe-link" href = "#"> Subscribe </a>
+       
+        <a id = "donate-link" href = "#"> DONATE </a>
+        <a id = "subscribe-link" href = "#"> SUBSCRIBE </a>
+           
     </div>
     </div>
     
     <nav>
-        <div class = "AF-logo">
-        The<span class = "pad-border"> a  </span>  <br>
-        Artists <span class = "pad-border"> a  </span>  <br>
-        Forum <span class = "pad-border"> a  </span> 
-        </div>
+      
+            <img class = "AF-logo" src ="300dpi_WHITEtrans_TokyoNYC-05.png">
+     
+    
         
         <!-- nav bar list -->
         <ul>
@@ -187,31 +207,50 @@
         
     </div> <!-- end div of rotating image -->
     
-    <hr>
-    <div class = "videoArea">
-    	<div class = "videoItem">
-            <iframe width="420" height="345" control src="https://www.youtube.com/embed/XGSy3_Czz8k">
-            </iframe>
-    	</div>
-    	<div class = "videoDesc">
-    		<p>AFTV 73</p>
-            <p>ARTISTS TEAM MEMBERS</p>
-            <p>#AFTVNYC</p>
-            <p>Host REBECCA L. HARGROVE interview attorney CHRISTOPHER J.P MITCHELL, ESQ about this important legal work which helps artists protect their rights and works, Rebecca also interviews arts & culture producer LEANNE STELLA from Art in FLUX about her work with HarLem based artists.</p>
-    	</div>
-
-    	<div class = "announcement">
-         <div class = "announcementArea">
-            <h3>ANNOUNCEMENT</h3>
-            <h4>CALL FOR ENTRIES:</h4>
-            <p class = "content_with_underline">The Artists Forum Festival of the Moving image:2017</p>
-            <p class = "content_with_underline">Volunteer and intern positions available</p>
-            <p>Check out our winners from the inaugural season of The Artists Forum Festival of the Moving Image: 2016!</p>
-        </div>   
-        </div>
-    </div>
-    <hr>
     
+    <div class = "rotating-area">
+    <iframe control src="https://www.youtube.com/embed/XGSy3_Czz8k">
+            </iframe>
+        <div class = "video-info"> 
+          <div id = "review-label">AFTV #:</div>
+        
+           <div id = "team-label">ARTISTS TEAM MEMBERS</div>
+            
+            <span id = "video-description">
+     A video description  A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description
+        </span>
+              </div>
+            
+            <div class = "announcement-info"> 
+             <span id = "announcement-label">ANNOUNCEMENTS</span>
+            <br>
+            <br>
+           <span id = "more-announcements">MESSAGE 1</span>
+                
+                         <div id = "announcement">
+     A video description A video description A video description A video description A video description A video description A video description A video description A video description
+        </div>
+               
+                    <span id = "more-announcements">MESSAGE 2</span>
+                
+                 <div id = "announcement">
+     A video description A video description A video description A video description A video description A video description A video description A video description A video description
+        </div>
+                
+                    <span id = "more-announcements">MESSAGE 2</span>
+                
+                 <div id = "announcement">
+     A video description A video description A video description A video description A video description A video description A video description A video description A video description
+        </div>
+            
+      
+    </div>
+    
+    </div>
+    
+        
+        
+
 </body>
 
 
