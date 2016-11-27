@@ -84,10 +84,10 @@
             
            
             
-        $("span.glyphicon-menu-left").click(function() {
+        $(".hover-height-left").click(function() {
            rotatingImage.clickCycleLeft(-1, 3);
         });
-             $("span.glyphicon-menu-right").click(function() {
+             $(".hover-height-right").click(function() {
             rotatingImage.clickCycleRight(4, 0);
             });
             /* join the array of the circle selector, then get the one that's clicked on by its id,
@@ -110,12 +110,32 @@
             var widthOfIcon = $("#youtube-icon").width();
           $(".header-widgets img").css("height", widthOfIcon);
             
+            /* sets the border on the right of the video */
+          var heightOfElement =  $("iframe").height() - $("#item-info").height();
+         
+            $("#video-description").css("height", heightOfElement);
+           
+            /*
+            function dropdownMenu(selector) {
+                do stuff
+            }
+            
+            $("#About").mouseenter(function() {
+                $(".hover-menu").fadeIn(50);
+            });
+            
+              $("#About").mouseleave(function() {
+                $(".hover-menu").fadeOut(50);
+            });
+            
+            */
+            
         }); //end of document.ready
     </script>
        <!-- header widgets like the donate button, facebook, twitter, and youtube icons -->
     <div class = "header-widgets">
         
-        
+       <span id = "mission-statement"> <i> Specializing in Media, Events, and Juried Competetions for Artists </i> </span>
         
       
     <img id = "youtube-icon" src = "YouTube_BLACK.png">
@@ -148,43 +168,164 @@
         <!-- nav bar list -->
         <ul>
         <li> <a href = "#">HOME</a> </li>
-        <li> <a href = "#">ABOUT</a> </li>
-        <li> <a href = "#">AF MAG</a> </li>
-        <li> <a href = "#">AFTV</a> </li>
-        <li> <a href = "#">EVENTS</a> </li>
-        <li> <a href = "#">COMPETITIONS</a> </li>
-        <li> <a href = "#">RESOURCES</a> </li>
-        <li> <a href = "#">LISTINGS</a> </li>
-        <li> <a href = "#">SUPPORT AF</a> </li>
+        <li id = "About"> <a href = "#">ABOUT</a> 
+            <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>  
+            </div>
+            </div>
+            </li>
+        <li id = "AFMAG"> <a href = "#">AF MAG</a> 
+            <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>
+            </div>
+            </div>
+            </li>
+        <li> <a href = "#">AFTV</a> 
+         <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>  
+            </div>
+            </div>    
+        </li>
+        <li> <a href = "#">EVENTS</a>
+             <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>  
+            </div>
+            </div>
+            
+        </li>
+        <li> <a href = "#">COMPETITIONS</a> 
+             <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>
+            </div>
+            </div>
+            </li>
+        <li> <a href = "#">RESOURCES</a> 
+             <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul> 
+            </div>
+            </div>
+            </li>
+        <li> <a href = "#">LISTINGS</a> 
+             <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>
+            </div>
+            </div>
+            </li>
+        <li> <a href = "#">SUPPORT AF</a> 
+             <div class = "nav-content">
+            <div class = "hover-menu">
+            <ul>
+            <li> <a href = "#">ExtraOne</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            <li> <a href = "#">ExtraTwo</a></li>   
+            </ul>
+            </div>
+            </div>
+            </li>
         </ul>
     
     </nav>
     
     <div class = "rotating-area">
-    
+        <div class = "hover-height-left">
+    <span class = "glyphicon glyphicon-menu-left"> </span> 
+            </div>
+        
+        <div class = "hover-height-right">
+         <span class = "glyphicon glyphicon-menu-right"> </span> 
+            </div>
     <img id = "image1" src = http://www.mrwallpaper.com/wallpapers/forest-trees-waterfall.jpg>
     <img id = "image2" src = http://wallpapercave.com/wp/v6dkdkN.jpg>
     <img id = "image3" src = https://c1.staticflickr.com/1/25/44040866_f74b3a3fd3_b.jpg>
     <img id = "image4" src = http://images.nationalgeographic.com/wpf/media-live/photos/000/894/overrides/glacier-national-park-hidden-lake_89495_600x450.jpg>
         <div class = "image-info"> 
+            <div id = "item-info">
           <span id = "review-label">REVIEWS:</span>
             <br>
            <span id = "team-label">ARTISTS TEAM MEMBERS</span>
             <br>
+                </div>
             <div id = "text1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
+            1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
         </div>
             
               <div id = "text2">
-           ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+           2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
         </div>
             
               <div id = "text3">
-          dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada
+ 3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
         </div>
             
               <div id = "text4">
-            fafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafaafa
+          4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, lorem non aliquam commodo, lorem lorem posuere purus, sit amet lacinia erat leo vitae eros. Nullam justo leo, eleifend sed mi at, convallis convallis quam. Aenean neque nibh, blandit at commodo vel, volutpat ac lectus. Morbi fermentum placerat mauris, vel suscipit neque venenatis in. Phasellus massa ipsum, dictum nec augue sit amet, posuere facilisis mi. Etiam gravida turpis erat, et porta libero auctor eget. Donec vestibulum pharetra orci vel scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ullamcorper dolor, sit amet sodales quam. Integer et magna at dui pharetra molestie quis et purus. 
         </div>
             
         <div class = "readmore-button"> <a href = "#"> READ MORE </a> </div>
@@ -193,8 +334,7 @@
         
     <div class = "rotating-area-controls"> 
         
-        <span class = "glyphicon glyphicon-menu-left"> </span> 
-         <span class = "glyphicon glyphicon-menu-right"> </span> 
+        
         <div class = "current-picture">
         <div id = "circle1" class = "circle"></div>
         <div id = "circle2" class = "circle"></div>
@@ -222,34 +362,44 @@
               </div>
             
             <div class = "announcement-info"> 
+           
              <span id = "announcement-label">ANNOUNCEMENTS</span>
             <br>
             <br>
            <span id = "more-announcements">MESSAGE 1</span>
                 
                          <div id = "announcement">
-     A video description A video description A video description A video description A video description A video description A video description A video description A video description
+    Dynamic Content 1:  A video description A video description A video description A video description A video description A video description A video description A video description A video description
+                            
         </div>
                
                     <span id = "more-announcements">MESSAGE 2</span>
                 
                  <div id = "announcement">
-     A video description A video description A video description A video description A video description A video description A video description A video description A video description
+      Dynamic Content 2: A video description A video description A video description A video description A video description A video description A video description A video description A video description
         </div>
                 
                     <span id = "more-announcements">MESSAGE 2</span>
                 
                  <div id = "announcement">
-     A video description A video description A video description A video description A video description A video description A video description A video description A video description
+    Dynamic Content 3:  A video description A video description A video description A video description A video description A video description A video description A video description A video description
         </div>
-            
+        
       
     </div>
     
     </div>
     
         
-        
+   
+<div class = "aside-information">
+    
+ <div class = "template-info">  Some information could go here such as, Info on the organization, trademarks, extra info, contact info, etc </div>
+    
+    
+    
+</div>
+  
 
 </body>
 
