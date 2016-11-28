@@ -169,6 +169,7 @@ nav ul li:hover .hover-menu {
 #image2, #image3, #image4 {
     /* remove the images from the flow of the page and retrive them with js */
     display: none;
+    
 }
 
 #text1 {
