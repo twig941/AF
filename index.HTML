@@ -112,18 +112,20 @@
             
             
             /*aligns the video to the image slide by taking the width of the button and the margin-left of the slide and making that the margin left of the video */
-            
+            var matchMargins = setInterval(function() {
             try {
                 /*parseInt can return NaN if the number doesn't come first */
             var iFrameMargin = parseInt($(".rotating-area img").css("margin-left"));
             var widthOfButton = $(".hover-height-left").width();
             var totalMarginOfVideo = iFrameMargin + widthOfButton;
-            $("iframe").css("margin-left", totalMarginOfVideo);
+         var frameMargin = $("iframe").css("margin-left", totalMarginOfVideo);
+            if (totalMarginOfVideo === frameMargin) clearInterval(matchMargins);
             }
             catch(error) {
                 totalMarginOfVideo = "3%";
                 $("iframe").css("margin-left", totalMarginOfVideo);
             }
+            },50);
             
             
             /* script to make the size of the ad and announcement section the same it's put in a setInterval function to fix a bug where the height of the announcement area is 25px for new visiters to the site */
@@ -132,8 +134,6 @@
             $(".announcement").css("height", heightOfAd + "px");
             var temp = $(".announcement").height();
             if(heightOfAd === temp)  clearInterval(matchElements);
-               
-            
             }, 50);
             
       
