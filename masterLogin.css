@@ -1,0 +1,37 @@
+html, body {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+form input {
+    border-radius: 5px;
+    width: 25%;
+   border: 0;
+    margin-top: 2%;
+}
+
+input[name = "username"], input[name = "password"] {
+    border: 1.25px solid black;
+    opacity: .8;
+}
+
+
+input[type = "submit"] {
+    border: 1.5px solid #6600CC;
+   padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    background-color: black;
+}
+
+form {
+    margin-top: 15%;
+    text-align: center;
+}
+
+
+
+nav {
+    margin-top: 0 !important;
+}
+

@@ -1,3 +1,13 @@
+body {
+/* removes all properties that the browsers sets automatically */  
+margin: 0;
+padding: 0;
+border: 0;
+}
+
+* {
+box-sizing: border-box;
+}
 
 
 #mission-statement {
@@ -43,7 +53,7 @@
 .header-widgets img {
     float: right;
     width: 3%;
-    height: 70px;
+    max-height: 50px;
     margin-left: 5px;
 }
 
@@ -183,7 +193,7 @@ nav ul li:hover .hover-menu {
 
 #review-label, #team-label {
     color: forestgreen;
-    font-size: 120%;
+    font-size: 170%;
     font-weight: bold;
 }
 
@@ -243,14 +253,18 @@ nav ul li:hover .hover-menu {
     cursor: pointer;
 }
 
-span.glyphicon-menu-left {
+.hover-height-left:hover, .hover-height-right:hover {
+    background-color: #808080; 
+}
+
+div.hover-height-left span.glyphicon-menu-left {
     float: left;
     font-size: 205%; /*changes font-size of the icons */
     color: black;
     cursor: pointer;
    top: 250px; /* height of the image divided by two for it to be centered */
 }
-span.glyphicon-menu-right {
+div.hover-height-right span.glyphicon-menu-right {
     float: right;
     font-size: 205%; /*changes font-size of the icons */
    /* color: rgba(128,128,128, .7); */
@@ -262,78 +276,101 @@ span.glyphicon-menu-right {
 
 
 iframe {
-    width: 40%;
+    width: 50%;
     height: 500px;
     margin-left: 1%;
     display: inline-block;
-}
-
-#video-description {
-    width: 38%;
-    float: left;
-    margin-top: 1%;
-     border-right: 1px solid gray;
-    
-}
-
-#review-label, #team-label {
-    width: 38%;
- 
+    border-radius: 15px;
 }
 
 .video-info {
-   position: absolute;
-    display: inline-block;
-    margin-left: 2%;
-}
-
-.announcement-info {
-    display: inline-block;
-    position:absolute;
+    float: right;
+     position: absolute;
     text-align: center;
-      margin-right: 5%;
- 
+   background-color: #FAEBD7;
+-webkit-box-shadow: 0px -4px 0px 0px bisque;
+-moz-box-shadow: 0px -4px 0px 0px bisque;
+box-shadow: 0px -4px 0px 0px bisque;
+    height: 500px;
+}
+
+.video-info {
+    display: inline-block;
     float: right;
 }
 
-#announcement {
-    float: right;
-    width: 55%;
-    margin-top:1%;
-   display: inline-block;
-   border-bottom: 1px solid gray; 
-}
-#announcement-label, #more-announcements {
-    float: right;
-    width: 55%; 
-    margin-top: 1%;
-    
+#video-description {
+    font-size: 150%;
+    color: black;
 }
 
-#announcement-label {
-    color: goldenrod;
-    font-weight: bold;
-    font-size: 135%;
- 
+.align-video-controls div.glyphicon-menu-left, div.glyphicon-menu-right {
+  font-size: 150%;
 }
 
-#more-announcements {
-    font-size: 110%;
-    color: lightslategray;
-}
+
+
 
 .aside-information {
     float:left;
     width: 100%;
     background-color: #2A212B;
-    padding-top: 7.5%;
-    padding-bottom: 7.5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
     margin-top: 1%;
 }
 
 .template-info {
     color: white;
     text-align: center;
+}
+
+.announcement-ad-row {
+ margin-top: 1%;
+}
+
+.announcement {
+    width: 50%;
+    display: inline-block;
+    background-color: #003366;
+    float: left;
+    height: 100%;
+    text-align: center;
+    font-size: 170%;
+    overflow: auto;
+}
+
+.ad {
+    width: 50%;
+    display: inline-block;
+    background-color: #CCCC99;
+    float: left;
+}
+
+.ad img {
+    height: 100%;
+    width: 100%;
+}
+
+.announcement-title {
+    color: orangered;
+    text-align: center;
+    font-size: 150%;
+}
+
+.announcement-1, .announcement-2, .announcement-3 {
+    border-bottom: 3px solid white;
+  float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    color: wheat;
+    margin-top: 1%;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
 }
 
 

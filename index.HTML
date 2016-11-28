@@ -4,7 +4,6 @@
 <meta charset = "utf-8">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> for mobile -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    <!-- Jquery library -->
-<link type = "text/css" rel = "stylesheet" href = "default.css">
 <link type = "text/css" rel = "stylesheet" href = "HomepageStyle.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
@@ -110,26 +109,34 @@
             var widthOfIcon = $("#youtube-icon").width();
           $(".header-widgets img").css("height", widthOfIcon);
             
-            /* sets the border on the right of the video */
-          var heightOfElement =  $("iframe").height() - $("#item-info").height();
-         
-            $("#video-description").css("height", heightOfElement);
-           
-            /*
-            function dropdownMenu(selector) {
-                do stuff
+            
+            
+            /*aligns the video to the image slide by taking the width of the button and the margin-left of the slide and making that the margin left of the video */
+            
+            try {
+                /*parseInt can return NaN if the number doesn't come first */
+            var iFrameMargin = parseInt($(".rotating-area img").css("margin-left"));
+            var widthOfButton = $(".hover-height-left").width();
+            var totalMarginOfVideo = iFrameMargin + widthOfButton;
+            $("iframe").css("margin-left", totalMarginOfVideo);
+            }
+            catch(error) {
+                totalMarginOfVideo = "3%";
+                $("iframe").css("margin-left", totalMarginOfVideo);
             }
             
-            $("#About").mouseenter(function() {
-                $(".hover-menu").fadeIn(50);
-            });
             
-              $("#About").mouseleave(function() {
-                $(".hover-menu").fadeOut(50);
-            });
+            /* script to make the size of the ad and announcement section the same it's put in a setInterval function to fix a bug where the height of the announcement area is 25px for new visiters to the site */
+         var matchElements = setInterval(function() {
+            var heightOfAd = $(".ad").height();
+            $(".announcement").css("height", heightOfAd + "px");
+            var temp = $(".announcement").height();
+            if(heightOfAd === temp)  clearInterval(matchElements);
+               
             
-            */
+            }, 50);
             
+      
         }); //end of document.ready
     </script>
        <!-- header widgets like the donate button, facebook, twitter, and youtube icons -->
@@ -349,49 +356,54 @@
     
     
     <div class = "rotating-area">
-    <iframe control src="https://www.youtube.com/embed/XGSy3_Czz8k">
-            </iframe>
+    <iframe src="https://www.youtube.com/embed/fiGsmtjYNss" frameborder="0" allowfullscreen></iframe>
         <div class = "video-info"> 
           <div id = "review-label">AFTV #:</div>
         
            <div id = "team-label">ARTISTS TEAM MEMBERS</div>
             
             <span id = "video-description">
-     A video description  A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description
+     A video description  A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description 
+                
+                <div class = "align-video-controls">
+                    <div class = "glyphicon glyphicon-menu-left"> <span id = "nextVideo"> NEXT AFTV </span> </div>
+   <div class = "glyphicon glyphicon-menu-right">   </div>
+                </div>
+       
+                
         </span>
               </div>
             
-            <div class = "announcement-info"> 
-           
-             <span id = "announcement-label">ANNOUNCEMENTS</span>
-            <br>
-            <br>
-           <span id = "more-announcements">MESSAGE 1</span>
-                
-                         <div id = "announcement">
-    Dynamic Content 1:  A video description A video description A video description A video description A video description A video description A video description A video description A video description
-                            
-        </div>
-               
-                    <span id = "more-announcements">MESSAGE 2</span>
-                
-                 <div id = "announcement">
-      Dynamic Content 2: A video description A video description A video description A video description A video description A video description A video description A video description A video description
-        </div>
-                
-                    <span id = "more-announcements">MESSAGE 2</span>
-                
-                 <div id = "announcement">
-    Dynamic Content 3:  A video description A video description A video description A video description A video description A video description A video description A video description A video description
-        </div>
-        
-      
-    </div>
     
     </div>
     
         
-   
+   <div class = "announcement-ad-row">
+    <div class = "announcement">
+        <div class = "announcement-title"><b>ANNOUNCEMENTS</b></div>
+        <div class = "flex-center">
+        <div class = "announcement-1">
+        This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
+        </div>
+        
+        <div class = "announcement-2">
+         This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
+        </div>
+        
+        <div class = "announcement-3">
+         This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
+        </div>
+        </div>
+    </div>
+    
+    <div class = "ad">
+       <img src = http://creativeclouduser.com/wp-content/uploads/2013/05/acclogo.jpg>
+    </div>
+    
+    </div>
+    
+    
+    
 <div class = "aside-information">
     
  <div class = "template-info">  Some information could go here such as, Info on the organization, trademarks, extra info, contact info, etc </div>
@@ -399,6 +411,8 @@
     
     
 </div>
+    
+    
   
 
 </body>
