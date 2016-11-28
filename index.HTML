@@ -119,7 +119,7 @@
             var totalMarginOfVideo = iFrameMargin + widthOfButton;
          var frameMargin = $("iframe").css("margin-left", totalMarginOfVideo + "px");
                if (frameMargin === totalMarginOfVideo) clearInterval(alignContent);
-           },50);
+           }, 250);
             
             
             /* script to make the size of the ad and announcement section the same it's put in a setInterval function to fix a bug where the height of the announcement area is 25px for new visiters to the site */
@@ -128,7 +128,7 @@
             $(".announcement").css("height", heightOfAd + "px");
             var temp = $(".announcement").height();
             if(heightOfAd === temp)  clearInterval(matchElements);
-            }, 50);
+            }, 250);
             
       
         }); //end of document.ready
