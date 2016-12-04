@@ -288,10 +288,6 @@ iframe {
     float: right;
      position: absolute;
     text-align: center;
-   background-color: #FAEBD7;
--webkit-box-shadow: 0px -4px 0px 0px bisque;
--moz-box-shadow: 0px -4px 0px 0px bisque;
-box-shadow: 0px -4px 0px 0px bisque;
     height: 500px;
 }
 
@@ -333,7 +329,7 @@ box-shadow: 0px -4px 0px 0px bisque;
 .announcement {
     width: 50%;
     display: inline-block;
-    background-color: #003366;
+    background-color: white;
     float: left;
     height: 100%;
     text-align: center;
@@ -364,7 +360,7 @@ box-shadow: 0px -4px 0px 0px bisque;
   float: left;
     margin-left: 2%;
     margin-right: 2%;
-    color: wheat;
+    color: black;
     margin-top: 1%;
 }
 

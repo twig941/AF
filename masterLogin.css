@@ -8,6 +8,7 @@ form input {
     width: 25%;
    border: 0;
     margin-top: 2%;
+    color: black;
 }
 
 input[name = "username"], input[name = "password"] {
@@ -35,3 +36,63 @@ nav {
     margin-top: 0 !important;
 }
 
+.incorrect-login {
+    color: darkred;
+    font-weight: 600;
+    font-size: 110%;
+    text-decoration: underline;
+}
+
+.master-navigation {
+    margin-top: 1%;
+    background-color: dodgerblue;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: white;
+    float: left;
+}
+
+.nav-icon {
+    position: relative;
+    left: 15px;
+    font-size: 185%;
+    cursor: pointer;
+}
+
+#items-menu {
+    display: none;
+}
+
+.master-navigation ul {
+    list-style-type: none;
+       text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.master-navigation ul li a {
+    color: white;
+}
+
+textarea {
+     border: 1px solid black;
+    margin-top: 1%;
+    width: 25%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.toolbar-menu {
+    margin-top: 10%;
+    width: 100%;
+    background-color: firebrick;
+    padding-bottom: 4%;
+    text-align: center;
+    color: white;
+}
+
+.toolbar-header {
+    font-weight: 700;
+    font-size: 160%;
+}

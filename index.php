@@ -1,3 +1,10 @@
+<?php
+require_once"init.php";
+$a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
+
+
+?>
+
 <!DOCTYPE HTML>
 <html lang = "en">
 <head>
@@ -377,15 +384,21 @@
         <div class = "announcement-title"><b>ANNOUNCEMENTS</b></div>
         <div class = "flex-center">
         <div class = "announcement-1">
-        This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
+        <?php
+        echo $a->selectAnnouncement(0);
+        ?>
         </div>
         
         <div class = "announcement-2">
-         This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
+         <?php
+        echo $a->selectAnnouncement(1);
+        ?>
         </div>
         
         <div class = "announcement-3">
-         This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
+          <?php
+        echo $a->selectAnnouncement(2);
+        ?>
         </div>
         </div>
     </div>
