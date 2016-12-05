@@ -41,15 +41,18 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             var currentText = ["#text1", "#text2", "#text3", "#text4"];
                    /* assign when to go back to the first image or to the last one to not get an error */
             this.cycleRight = function(conditional, conditionalAssignment) {
-            $(imageToShow[currentImage]).fadeOut(fadeOutTime);  
-            $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
+            $(imageToShow[currentImage]).animate({left: "-1550px"}, 200, function() {
+                $(this).css("display", "none"); 
+                 $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
             $(currentCircule[currentImage]).css("background-color", "tan");
             currentImage++;
             if (currentImage == conditional)  currentImage = conditionalAssignment;
             $(currentText[currentImage]).fadeIn(fadeInTime);
-            $(imageToShow[currentImage]).fadeIn(fadeInTime);
+            $(imageToShow[currentImage]).animate({left: "0px"}, 200).css("display", "inline-block"); 
             $(currentCircule[currentImage]).css("background-color", "black");
             });
+});
+           
             };
             this.clickCycleRight = function(conditional, conditionalAssignment) {
                 this.cycleRight(conditional, conditionalAssignment);
@@ -57,17 +60,17 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             };
                    
             this.clickCycleLeft = function(conditional, conditionalAssignment) {
-            $(imageToShow[currentImage]).fadeOut(fadeOutTime);
-            $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
+           $(imageToShow[currentImage]).animate({left: "-1550px"}, 200, function() {
+                $(this).css("display", "none"); 
+                 $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
             $(currentCircule[currentImage]).css("background-color", "tan");
             currentImage--;
-             
             if (currentImage == conditional)  currentImage = conditionalAssignment;
-            $(imageToShow[currentImage]).fadeIn(fadeInTime);
             $(currentText[currentImage]).fadeIn(fadeInTime);
+            $(imageToShow[currentImage]).animate({left: "0px"}, 200).css("display", "inline-block"); 
             $(currentCircule[currentImage]).css("background-color", "black");
-            clearInterval(cycleInterval);         
-            }); //end of callback
+            });
+});
     };
            this.currentCircle =  function currentCircleClicked(imageIndex, circleIndex) {
                    $(imageToShow[imageIndex]).fadeOut(fadeOutTime); 
@@ -113,10 +116,15 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
                 rotatingImage.setCurrentImage(circleArrayIndex);   
            });
             /* make the header widgets squares, one can put this in a scroll event to fix them from strectching when the users zooms in */
+            
+       
             var widthOfIcon = $("#youtube-icon").width();
           $(".header-widgets img").css("height", widthOfIcon);
-            
-            
+               
+            $(window).scroll(function() {
+               var widthOfIcon = $("#youtube-icon").width();
+          $(".header-widgets img").css("height", widthOfIcon);  
+            });
             
             /*aligns the video to the image slide by taking the width of the button and the margin-left of the slide and making that the margin left of the video */
           
@@ -355,6 +363,10 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         
     </div> <!-- end div of rotating image -->
     
+    <div class = "separation">
+       
+    </div>
+    
     
     <div class = "rotating-area">
     <iframe src="https://www.youtube.com/embed/fiGsmtjYNss" frameborder="0" allowfullscreen></iframe>
@@ -376,6 +388,10 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
               </div>
             
     
+    </div>
+    
+     <div class = "separation">
+       
     </div>
     
         

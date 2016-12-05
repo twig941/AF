@@ -163,7 +163,8 @@ nav ul li:hover .hover-menu {
     width: 50%;
     height: 500px;
     margin-left: 1%;
-    border-radius: 15px;
+    border-radius: 4px;
+    position: relative;
 }
 
 #image2, #image3, #image4 {
@@ -241,21 +242,24 @@ nav ul li:hover .hover-menu {
 }
 
 .hover-height-left {
-   background:rgba(169,169,169, .5);
+    /* background:rgba(169,169,169, .5); */
+    background-color: white;
     height: 500px;
     float: left;
     cursor: pointer;
 }
 
 .hover-height-right {
-   background:rgba(169,169,169, .5);
+  /* background:rgba(169,169,169, .5); */
+    background-color: white;
     height: 500px;
     float: right;
     cursor: pointer;
 }
 
 .hover-height-left:hover, .hover-height-right:hover {
-    background-color: #808080; 
+   /* background-color: #808080; */
+    background-color: white;
 }
 
 div.hover-height-left span.glyphicon-menu-left {
@@ -281,14 +285,14 @@ iframe {
     height: 500px;
     margin-left: 1%;
     display: inline-block;
-    border-radius: 15px;
+    border-radius: 4px;
 }
 
 .video-info {
     float: right;
      position: absolute;
-    text-align: center;
     height: 500px;
+    margin-left: 5%;
 }
 
 .video-info {
@@ -369,5 +373,14 @@ iframe {
     align-items: center;
     margin-top: 5%;
 }
+
+.separation {
+    border-top: 1.5px solid black;
+    /* the top and the bottom are half and inch since 1inch = 96px */
+    margin-top: 48px;
+    margin-bottom: 48px;
+    color: blue;
+}
+
 
 
