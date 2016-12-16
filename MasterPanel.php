@@ -35,6 +35,13 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             $("#items-menu").slideToggle(100);
         });
         
+         var matchElements = setInterval(function() {
+            var heightOfAd = $(".ad").height();
+            $(".announcement").css("height", heightOfAd + "px");
+            var temp = $(".announcement").height();
+            if(heightOfAd === temp)  clearInterval(matchElements);
+            }, 250);
+        
     });
     
     
@@ -203,7 +210,7 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
     /*logic to change the current system that needs to be changed */
     if (isset($_GET["change"])) {
     if ($_GET["change"] === "announcement") {
-        
+    $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");    
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($a->updateAnnouncement($_POST["announcement0"], $_POST["announcement1"], $_POST["announcement2"])) {
                 echo "<div style = 'text-align:center; font-size: 175%; font-weight: 600;'>The announcements have been changed </div>";
@@ -242,8 +249,11 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         </div>
     </div>
     
-    <div class = 'ad'>
-       <img src = http://creativeclouduser.com/wp-content/uploads/2013/05/acclogo.jpg>
+    <div class = 'ad'>";
+        
+        
+        echo "
+       <img src =" .  $ad->getLastAdLocation() . ">
     </div>
     
     </div>
@@ -251,9 +261,72 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
     }
         
         if ($_GET["change"] === "video") {
+            /* IF THE CHARACTER LENGTH IS GREATER THAN THE THE VARCHAR VALUE IN THE DATABASE DATA WILL NOT BE INSERTED CHECK FOR THIS LATER */
             $v = new Video("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $link = $v->linkToEmbed($_POST["video-link"]);
+                $v->insertVideoInfo($_POST["AFTV-number"], $link, $_POST["Members"], $_POST["title"], $v->sanitizeDatabaseInput($_POST["description"]));
+            }
+            
+            
             //$v->createVideoTable();
             //echo $v->linkToEmbed("https://www.youtube.com/watch?v=ihVM5WC63w8");
+            $v->displayAddingVideoInterface();
+            
+            
+            echo "<div style = 'text-align:center; font-size: 150%;margin-top:1.5%;margin-bottom:1.5%;'>How It Looks Currently</div>";
+            echo "<div class = 'rotating-area'>";
+    echo $v->getLastVideoField("VIDEO_LINK");
+            
+        echo "
+        <div class = 'video-info'> 
+          <div id = 'review-label'>";
+            echo "AFTV #: " . $v->getLastVideoField("AFTV_Number");
+            
+            echo
+            "</div>
+        
+           <div id = 'team-label'>";
+            echo $v->getLastVideoField("VIDEO_TITLE");
+            
+            echo "</div>
+             <div id ='members-label'>";
+            echo "MEMBERS: " . $v->getLastVideoField("MEMBERS");
+                echo"</div>
+            <span id = 'video-description'>";
+            echo $v->getLastVideoField("VIDEO_DESCRIPTION");
+                echo "
+                <div class = 'align-video-controls'>
+                    <div class = 'glyphicon glyphicon-menu-left'> <span id = 'nextVideo'> NEXT AFTV </span> </div>
+   <div class = 'glyphicon glyphicon-menu-right'>   </div>
+                </div>
+       
+                
+        </span>
+              </div>
+            
+    
+    </div>";
+        }
+        
+        if ($_GET["change"] === "ad") {
+        $a = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM"); 
+            if (isset($_POST["linked-ad"])) {
+                $a->insertAdLink($_POST["linked-ad"]);
+               
+            }
+     
+           //$a->createAdTable();
+            echo "<div style = 'float:left; width: 50%; text-align: center; height: 100%; background-color: #bdbdbd;'>
+<div class = 'online-image'>Link Your Advertisement From A Link</div>";
+            
+            
+            echo $a->createAdFormForALink() . "</div>";
+            
+             echo "<div style = 'float:right; width: 50%;text-align: center;height: 100%; background-color: #a8a8a8;'>
+             <div class = 'online-image'>Upload Your Advertisement</div>";
+                 echo $a->createAdFormForAUpload() . "</div>";
+            
         }
 }
 ?>

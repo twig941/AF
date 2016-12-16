@@ -18,6 +18,11 @@ class Database {
         $this->connection->query($query);
     }
     
+    function sanitizeDatabaseInput($data) {
+        $data = $this->connection->real_escape_string($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
     
     
  protected $connection;   

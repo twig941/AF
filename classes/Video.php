@@ -9,10 +9,11 @@ class Video extends database {
     function createVideoTable() {
         $query = "CREATE TABLE IF NOT EXISTS YOUTUBE_AF_VIDEOS (
         ID INT(11) PRIMARY KEY AUTO_INCREMENT,
-        VIDEO_LINK VARCHAR(255) NOT NULL,
-        MEMBERS VARCHAR(255) NOT NULL,
-        VIDEO_TITLE VARCHAR(255) NOT NULL,
-        VIDEO_DESCRIPTION VARCHAR(1000) NOT NULL
+        AFTV_Number INT(11) NOT NULL,
+        VIDEO_LINK VARCHAR(1000) NOT NULL,
+        MEMBERS VARCHAR(1000) NOT NULL,
+        VIDEO_TITLE VARCHAR(1000) NOT NULL,
+        VIDEO_DESCRIPTION VARCHAR(10000) NOT NULL
         )";
         $this->connection->query($query);
     }
@@ -29,10 +30,37 @@ class Video extends database {
     }
     
     
+    function displayAddingVideoInterface() {
+        $form = "<form method = 'POST' action = '' id = 'video-form'>
+        <div style = 'text-align:center; margin-top:4%;'>
+        <label> Video Link </label> <input type = 'text' name = 'video-link'>
+        <label> Title </label> <input type = 'text' name = 'title'>
+        <label> AFTV Number </label> <input type = 'text' name = 'AFTV-number'>
+        <label> AF Members </label> <input type = 'text' name = 'Members'>
+        <label> Description </label> <textarea name = 'description'> </textarea>
+        <br>
+        <input type = 'submit' name = 'submit' value = 'submit'>
+        </div>
+        </form>
+        ";
+        echo $form;
+    }
     
     
+    function insertVideoInfo($afNumber, $videoLink, $members, $videoTitle, $videoDescription) {
+        $query = "INSERT INTO youtube_af_videos (AFTV_Number, VIDEO_LINK, MEMBERS, VIDEO_TITLE, VIDEO_DESCRIPTION) VALUES('$afNumber', '$videoLink', '$members', '$videoTitle', '$videoDescription')";
+        $this->connection->query($query);
+    }
     
     
+    function getLastVideoField($field) {
+        $query = "SELECT $field FROM youtube_af_videos ORDER BY ID DESC LIMIT 1";
+        if ($result = $this->connection->query($query)) {
+            while($row = $result->fetch_assoc()) {
+                return $row[$field];
+            }
+        }
+    }
     
     
     

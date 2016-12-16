@@ -1,10 +1,3 @@
-<?php
-require_once"init.php";
-$a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
-$ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");    
-
-?>
-
 <!DOCTYPE HTML>
 <html lang = "en">
 <head>
@@ -41,18 +34,15 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             var currentText = ["#text1", "#text2", "#text3", "#text4"];
                    /* assign when to go back to the first image or to the last one to not get an error */
             this.cycleRight = function(conditional, conditionalAssignment) {
-            $(imageToShow[currentImage]).animate({left: "-1550px"}, 200, function() {
-                $(this).css("display", "none"); 
-                 $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
+            $(imageToShow[currentImage]).fadeOut(fadeOutTime);  
+            $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
             $(currentCircule[currentImage]).css("background-color", "tan");
             currentImage++;
             if (currentImage == conditional)  currentImage = conditionalAssignment;
             $(currentText[currentImage]).fadeIn(fadeInTime);
-            $(imageToShow[currentImage]).animate({left: "0px"}, 200).css("display", "inline-block"); 
+            $(imageToShow[currentImage]).fadeIn(fadeInTime);
             $(currentCircule[currentImage]).css("background-color", "black");
             });
-});
-           
             };
             this.clickCycleRight = function(conditional, conditionalAssignment) {
                 this.cycleRight(conditional, conditionalAssignment);
@@ -60,17 +50,17 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             };
                    
             this.clickCycleLeft = function(conditional, conditionalAssignment) {
-           $(imageToShow[currentImage]).animate({left: "-1550px"}, 200, function() {
-                $(this).css("display", "none"); 
-                 $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
+            $(imageToShow[currentImage]).fadeOut(fadeOutTime);
+            $(currentText[currentImage]).fadeOut(fadeOutTime, "swing", function() {
             $(currentCircule[currentImage]).css("background-color", "tan");
             currentImage--;
+             
             if (currentImage == conditional)  currentImage = conditionalAssignment;
+            $(imageToShow[currentImage]).fadeIn(fadeInTime);
             $(currentText[currentImage]).fadeIn(fadeInTime);
-            $(imageToShow[currentImage]).animate({left: "0px"}, 200).css("display", "inline-block"); 
             $(currentCircule[currentImage]).css("background-color", "black");
-            });
-});
+            clearInterval(cycleInterval);         
+            }); //end of callback
     };
            this.currentCircle =  function currentCircleClicked(imageIndex, circleIndex) {
                    $(imageToShow[imageIndex]).fadeOut(fadeOutTime); 
@@ -116,15 +106,10 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
                 rotatingImage.setCurrentImage(circleArrayIndex);   
            });
             /* make the header widgets squares, one can put this in a scroll event to fix them from strectching when the users zooms in */
-            
-       
             var widthOfIcon = $("#youtube-icon").width();
           $(".header-widgets img").css("height", widthOfIcon);
-               
-            $(window).scroll(function() {
-               var widthOfIcon = $("#youtube-icon").width();
-          $(".header-widgets img").css("height", widthOfIcon);  
-            });
+            
+            
             
             /*aligns the video to the image slide by taking the width of the button and the margin-left of the slide and making that the margin left of the video */
           
@@ -363,10 +348,6 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         
     </div> <!-- end div of rotating image -->
     
-    <div class = "separation">
-       
-    </div>
-    
     
     <div class = "rotating-area">
     <iframe src="https://www.youtube.com/embed/fiGsmtjYNss" frameborder="0" allowfullscreen></iframe>
@@ -374,7 +355,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
           <div id = "review-label">AFTV #:</div>
         
            <div id = "team-label">ARTISTS TEAM MEMBERS</div>
-            <div id ="members-label"> MEMBERS </div>
+            
             <span id = "video-description">
      A video description  A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description A video description 
                 
@@ -390,37 +371,27 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
     
     </div>
     
-     <div class = "separation">
-       
-    </div>
-    
         
    <div class = "announcement-ad-row">
     <div class = "announcement">
         <div class = "announcement-title"><b>ANNOUNCEMENTS</b></div>
         <div class = "flex-center">
         <div class = "announcement-1">
-        <?php
-        echo $a->selectAnnouncement(0);
-        ?>
+        This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
         </div>
         
         <div class = "announcement-2">
-         <?php
-        echo $a->selectAnnouncement(1);
-        ?>
+         This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
         </div>
         
         <div class = "announcement-3">
-          <?php
-        echo $a->selectAnnouncement(2);
-        ?>
+         This would be taken up from a database  This would be taken up from a database  This would be taken up from a database  This would be taken up from a database
         </div>
         </div>
     </div>
     
     <div class = "ad">
-       <img src = <?php echo $ad->getLastAdLocation(); ?>
+       <img src = http://creativeclouduser.com/wp-content/uploads/2013/05/acclogo.jpg>
     </div>
     
     </div>

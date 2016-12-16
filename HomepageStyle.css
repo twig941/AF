@@ -199,6 +199,11 @@ nav ul li:hover .hover-menu {
     font-weight: bold;
 }
 
+#members-label {
+    font-size: 170%;
+    font-weight: bold;
+}
+
 #team-label {
     color: grey;
 }

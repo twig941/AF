@@ -96,3 +96,17 @@ textarea {
     font-weight: 700;
     font-size: 160%;
 }
+
+
+#video-form label {
+    display: block;
+}
+
+#video-form input[type = "text"], #ad-form input[type = "text"] {
+    border: 1px solid black;
+}
+
+.online-image {
+    padding-top: 3%;
+    font-size: 140%;
+}
