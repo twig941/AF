@@ -5,43 +5,12 @@ padding: 0;
 border: 0;
 }
 
+
 * {
 box-sizing: border-box;
-}
-
-
-#mission-statement {
-    position: absolute;
-    color: black;
-    font-weight: 600;
-    font-size: 200%;
-    margin-top: 2%;
-    right: 0;
-    left: 5%;
-    text-shadow: 2px 6px 4px rgba(150, 150, 172, 1);
-}
-
-#float-login {
-    float: right;
-    font-size: 130%;
-    position: relative;
-    height: auto;
-    top: 15px;
-}
-#donate-link {
-    float: right;
-    margin-right: 2px;
-    font-size: 190%;
-    color: #D95B1C;
-    font-weight: 600;
-}
-
-#subscribe-link {
-    float: right;
-    font-size: 190%;
-    font-weight: 600;
-    margin-right: 1%;
-    color: black;
+margin: 0;
+padding: 0;
+border: 0;
 }
 
 @keyframes spinAround {
@@ -50,11 +19,79 @@ box-sizing: border-box;
     100% {transform: rotateY(360deg); }
 }
 /* the twitter, fb, instagram, and search button are all images */
-.header-widgets img {
+
+.header-widgets {
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    padding-bottom: 1%;
+}
+
+.header-widgets img:not(.logo) {
     float: right;
-    width: 3%;
-    max-height: 50px;
+    display: inline-block;
+    width: 55px;
+    height: 50px;
     margin-left: 5px;
+}
+
+.header-widgets .logo {
+    float: left;
+    height: 200px !important;
+    width: 20%;
+}
+
+.right-container {
+   margin-right: 3%;
+position: relative;
+    top: 15px;
+    
+    
+}
+
+.mission-statement {
+    color: white;
+    position: relative;
+    top: 50%;
+    font-weight: 600;
+}
+
+.right-widgets {
+    position: absolute;
+    float: right;
+}
+
+.login-button {
+    float: right;
+    position: relative;
+    top: 15px;
+    color: white;
+    margin-right: 1%;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.login-button1 {
+    top: 65px; /* height of the icons + .right-container height*/
+    right: 0;
+    margin-right: 3%;
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: .9px;
+    margin-top: 20px;
+}
+
+.login-button2 {
+      top: 125px; /*the height of the social media icons + the font-size of the login button + .right-container height*/
+    right: 0;
+    margin-right: 3%;
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: .9px;
 }
 
 
@@ -70,94 +107,131 @@ box-sizing: border-box;
     height: auto;
 }
 
-
 nav {
-    margin-top: 3%;
-    background-color: black;
-    padding-top: 5px;
-    padding-bottom: 12px;
-}
-
- nav li:not(:first-child) {
-    margin-left: 20px;
-}
-
-nav li {
-    display: inline-block;
-    z-index: 1000; /* must be 1000 to prevent anything from being over the element */
+     
+    width: 100%;
+    z-index: 100000;
 }
 
 nav ul {
     list-style-type: none;
-     display: inline-block; 
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    margin-top: 3px;
+   text-align: center;
+    background-color: white;
 }
 
-
+nav ul li {
+    display: inline-block;
+    margin-right: 7px;
+}
 
 nav ul li a {
-    color: white;
-    font-size: 130%;
-    font-weight: 800;
-   
-}
-
-nav ul li a:hover {
-    color: white;
-    border-bottom: 5px ridge white;
-}
-nav ul li:hover {
-    transform: translateY(-3px);
+ font-size: 100%;
+    color: black;
+    font-weight: 700;
 }
 
 .hover-menu {
-    position: absolute;
+    /*margins calculate by javascript */
+    background-color: white;
+    padding-top: .25%;
     display: none;
+    position: absolute;
+    left:0;
+    right: 0;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.75);
+-moz-box-shadow:    0px 1px 2px 0px rgba(0, 0, 0, 0.75);
+box-shadow:         0px 1px 2px 0px rgba(0, 0, 0, 0.75);
 }
 
-.nav-content ul {
-    background-color: black;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-.hover-menu ul li {
-    /* gets rid of anything previosuly declared for the nav */
-    display: block !important;
-    margin-left: 0px !important;
-    margin-top: 25px;
-    margin-bottom: 25px;
-     padding-right: 50px;
-   padding-left: 50px;
-}
-
-.hover-menu ul li a {
-    /* gets rid of anything previosuly declared for the nav */
-   color: wheat;
-
-}
-
-.hover-menu ul li a:hover {
-    color: black;
-    border-bottom: 5px ridge black;
-}
-
-.hover-menu ul li a:hover {
-    color: wheat;
-    border-bottom: 5px ridge black;
-}
-
-.hover-menu ul, .hover-menu li {
-    /* gets rid of default for ul */
-    margin-left: 0;
+#hidden-menu {
+    border: 0;
     padding: 0;
+    margin: 0;
+}
+
+.hover-menu li {
+    display: block;
+     text-align: left;
+
+}
+
+.tab-info {
+   margin-left: 12%;
+    z-index: 100000;
+    overflow: auto;
+    position: absolute;
+    left: 5%;
+    text-align: left;
+    float: right;
+    height: 100%;
+}
+
+.hover-menu li a{
+    display: block;
+    font-size: 150%;
 }
 
 nav ul li:hover .hover-menu {
-   display: block;
+    display: block;
+    z-index: 100000;
+}
+
+.search-bar {
+    cursor: pointer;
+}
+
+.search-bar:hover {
+    font-size: 1.2em;
+}
+
+.search-menu {
+    display: none;
+    border-bottom: 1px solid black;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+}
+
+.search-menu form {
+    text-align: center;
+}
+
+.search-menu form input:first-child {
+    width: 100%;
+     outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+   text-align:center;
+    color:black;
+}
+
+.search-menu form input:first-child:focus {
+    background-color: #FFF8DC;
+}
+
+.search-menu form input[type = "submit"] {
+    text-align: center;
+    margin-top: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: .25px solid black;
+    border-radius: 7px;
+}
+
+.search-menu form input[type = "submit"]:hover {
+    border: .25px solid gray;
 }
 
 .rotating-area {
-    margin-top: 1%;
+    height: 500px;
+    margin-top: 48px; /* adds a half an inch between the navbar and the image slider */
 }
 .rotating-area img {
     width: 50%;
@@ -167,24 +241,29 @@ nav ul li:hover .hover-menu {
     position: relative;
 }
 
-#image2, #image3, #image4 {
+ #image2, #image3, #image4 {
     /* remove the images from the flow of the page and retrive them with js */
     display: none;
-    
+    position: relative;
+     left: -9000px;
 }
 
 #text1 {
     color: black;
     line-height: 120%;
-    font-size: 120%;
+    font-size: 16px;
+    text-align: justify;
 }
 
 #text2, #text3, #text4 {
     display: none;
     color: black;
     line-height: 120%;
-    font-size: 120%;
+    font-size: 16px;
+    text-align: justify;
 }
+
+
 .image-info {
     display: inline-block;
     position: absolute;
@@ -210,7 +289,7 @@ nav ul li:hover .hover-menu {
 
 .readmore-button {
     border: 1px solid gray;
-    width: 20%;
+    width: 30%;
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -283,6 +362,11 @@ div.hover-height-right span.glyphicon-menu-right {
     top: 250px;
 }
 
+div.hover-height-left span.glyphicon-menu-left:hover, div.hover-height-right span.glyphicon-menu-right:hover{
+ 	color: rgba(0,0,0, .7);
+}
+
+
 
 
 iframe {
@@ -298,6 +382,7 @@ iframe {
      position: absolute;
     height: 500px;
     margin-left: 5%;
+    margin-right: 10%;
 }
 
 .video-info {
@@ -306,30 +391,64 @@ iframe {
 }
 
 #video-description {
-    font-size: 150%;
+    font-size: 16px;
     color: black;
+    text-align: justify;
 }
 
 .align-video-controls div.glyphicon-menu-left, div.glyphicon-menu-right {
   font-size: 150%;
 }
 
-
-
-
-.aside-information {
-    float:left;
-    width: 100%;
-    background-color: #2A212B;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-top: 1%;
+.announcements-row {
+    height: 250px;
 }
 
-.template-info {
-    color: white;
-    text-align: center;
+.announcement-column {
+    width: 33%;
+    float: left;
 }
+
+.announcement-description {
+    width: 75%;
+    text-align: justify;
+    font-size: 16px;
+}
+
+.announcement-name {
+    font-size: 170%;
+font-weight: bold;
+    color: black;
+}
+
+.announcement-title {
+     font-size: 170%;
+font-weight: bold;
+    color: gray;
+}
+
+.AF-address {
+    float: left;
+    margin-left: 10%;
+     padding-bottom: 48px;
+}
+
+.AF-other-items {
+    float: right;
+    margin-right: 10%;
+}
+
+.aside {
+
+}
+
+.organization-name {
+    font-size: 170%;
+font-weight: bold;
+    color: black;
+}
+
+/*
 
 .announcement-ad-row {
  margin-top: 1%;
@@ -378,13 +497,13 @@ iframe {
     align-items: center;
     margin-top: 5%;
 }
+*/
 
 .separation {
     border-top: 1.5px solid black;
     /* the top and the bottom are half and inch since 1inch = 96px */
     margin-top: 48px;
     margin-bottom: 48px;
-    color: blue;
 }
 
 

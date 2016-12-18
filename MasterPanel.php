@@ -28,6 +28,8 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 </head>
 <body>
     
+
+    
     <script>
     
     $(document).ready(function() {
@@ -314,6 +316,28 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             if (isset($_POST["linked-ad"])) {
                 $a->insertAdLink($_POST["linked-ad"]);
                
+            }
+            
+           if (isset($_POST["submit-upload"])) {
+               /*
+               MUST BE ADDED WHEN THE SITE IT ONLINE */
+               if($_FILES) {
+                   $tempName = $_FILES["file-ad"]["tmp_name"];
+                   $nameOfFile = $_FILES["file-ad"]["name"];
+                   echo $nameOfFile;
+                   if ($a->uploadAd("Advertisements", $tempName, $nameOfFile)) {
+                       echo "worked";
+                   }
+                   else {
+                       echo "didn't work";
+                   }
+               }
+               else {
+                   echo "faileD";
+               }
+           }
+            else {
+                echo "failed";
             }
      
            //$a->createAdTable();

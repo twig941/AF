@@ -50,7 +50,21 @@ class Ad extends Database {
             }
         }
     }
+    
+    function uploadAd($directory, $tempName, $nameOfFile) {
+    
+    $path = $directory . "/" . $nameOfFile;
+     if (move_uploaded_file($tempName, $directory . "/". $nameOfFile)) {
+         $query = "INSERT INTO af_advertisement (IMAGE_SOURCE) VALUES('$path')";
+        $this->connection->query($query);
+         return true;
+     }
+    return false;
+   
 }
+    
+}
+
 
 
 
