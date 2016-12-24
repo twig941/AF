@@ -75,7 +75,7 @@ window.selWrap = function(id,startTag,endTag) {
 <div class = "insert-item-bar">
 <ul>
 <li onclick="selWrapImg('ta1')">Add an Image from Online</li>    
-    
+    <li onclick="selWrap('ta1', '<figure> <img src=', '><figcaption><i>The caption goes here</i></figcaption></figure>')">Test</li>      
 </ul>    
     
     
