@@ -9,7 +9,6 @@ class Video extends database {
     function createVideoTable() {
         $query = "CREATE TABLE IF NOT EXISTS YOUTUBE_AF_VIDEOS (
         ID INT(11) PRIMARY KEY AUTO_INCREMENT,
-        AFTV_Number INT(11) NOT NULL,
         VIDEO_LINK VARCHAR(1000) NOT NULL,
         MEMBERS VARCHAR(1000) NOT NULL,
         VIDEO_TITLE VARCHAR(1000) NOT NULL,
@@ -35,7 +34,6 @@ class Video extends database {
         <div style = 'text-align:center; margin-top:4%;'>
         <label> Video Link </label> <input type = 'text' name = 'video-link'>
         <label> Title </label> <input type = 'text' name = 'title'>
-        <label> AFTV Number </label> <input type = 'text' name = 'AFTV-number'>
         <label> AF Members </label> <input type = 'text' name = 'Members'>
         <label> Description </label> <textarea name = 'description'> </textarea>
         <br>
@@ -47,8 +45,8 @@ class Video extends database {
     }
     
     
-    function insertVideoInfo($afNumber, $videoLink, $members, $videoTitle, $videoDescription) {
-        $query = "INSERT INTO youtube_af_videos (AFTV_Number, VIDEO_LINK, MEMBERS, VIDEO_TITLE, VIDEO_DESCRIPTION) VALUES('$afNumber', '$videoLink', '$members', '$videoTitle', '$videoDescription')";
+    function insertVideoInfo($videoLink, $members, $videoTitle, $videoDescription) {
+        $query = "INSERT INTO youtube_af_videos (VIDEO_LINK, MEMBERS, VIDEO_TITLE, VIDEO_DESCRIPTION) VALUES('$videoLink', '$members', '$videoTitle', '$videoDescription')";
         $this->connection->query($query);
     }
     

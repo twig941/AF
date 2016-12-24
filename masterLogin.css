@@ -110,3 +110,10 @@ textarea {
     padding-top: 3%;
     font-size: 140%;
 }
+
+#userArticleForm textarea {
+    width: 100%;
+    padding:0;
+    height: 250px;
+    font-size: 16px;
+}

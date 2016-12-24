@@ -232,34 +232,11 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         echo "<input type = 'submit' name = 'submit' value = 'submit'>";
         echo "</form>";
         
-        echo "<div style = 'text-align:center; font-size: 175%; font-weight: 600; padding-top: 5%;'> How it looks </div>";
-    echo "<div class = 'announcement-ad-row'>
-    <div class = 'announcement'>
-        <div class = 'announcement-title'><b>ANNOUNCEMENTS</b></div>
-        <div class = 'flex-center'>
-        <div class = 'announcement-1'>";
-        echo $a->selectAnnouncement(0);
-        echo "</div>
-        
-        <div class = 'announcement-2'>";
-        echo $a->selectAnnouncement(1);
-        echo "</div>
-        
-        <div class = 'announcement-3'>";
-        echo $a->selectAnnouncement(2);
-        echo "</div>
-        </div>
-    </div>
-    
-    <div class = 'ad'>";
-        
-        
-        echo "
-       <img src =" .  $ad->getLastAdLocation() . ">
-    </div>
-    
-    </div>
-    ";    
+       /*
+       *
+       *add the new announcement interface
+       *
+       */
     }
         
         if ($_GET["change"] === "video") {
@@ -267,11 +244,11 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             $v = new Video("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $link = $v->linkToEmbed($_POST["video-link"]);
-                $v->insertVideoInfo($_POST["AFTV-number"], $link, $_POST["Members"], $_POST["title"], $v->sanitizeDatabaseInput($_POST["description"]));
+                $v->insertVideoInfo($link, $_POST["Members"], $_POST["title"], $v->sanitizeDatabaseInput($_POST["description"]));
             }
             
             
-            //$v->createVideoTable();
+            $v->createVideoTable();
             //echo $v->linkToEmbed("https://www.youtube.com/watch?v=ihVM5WC63w8");
             $v->displayAddingVideoInterface();
             
@@ -283,7 +260,7 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         echo "
         <div class = 'video-info'> 
           <div id = 'review-label'>";
-            echo "AFTV #: " . $v->getLastVideoField("AFTV_Number");
+           
             
             echo
             "</div>
@@ -336,9 +313,7 @@ $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
                    echo "faileD";
                }
            }
-            else {
-                echo "failed";
-            }
+           
      
            //$a->createAdTable();
             echo "<div style = 'float:left; width: 50%; text-align: center; height: 100%; background-color: #bdbdbd;'>
