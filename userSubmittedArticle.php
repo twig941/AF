@@ -16,6 +16,9 @@
      $(".output-area").html(currentText);
     }
     
+     
+   
+    
 $(document).ready(function() {
     
 window.selWrapBold = function(id) { selWrap(id,'<b>','</b>'); };
@@ -41,6 +44,11 @@ window.selWrap = function(id,startTag,endTag) {
                $("#ta1").val(currentText + "<br>");
             }
             
+    });
+    
+    /*add more inputs */
+    $(".addMoreInputsButton").click(function() {
+        $(".fileContainer").append('<input id = "userImages" type = "file" name = "userFiles[]">');
     });
     
 });
@@ -79,11 +87,29 @@ window.selWrap = function(id,startTag,endTag) {
 </ul>    
     
     
+    
 </div>
     
+    <form method = "POST" action = "" enctype ="multipart/form-data" id = "userImages">
+    <label>Add An Image From Your Computer</label>
+    <div class = "fileContainer">
+    <input id = "userImages" type = "file" name = "userFiles[]">
+    </div>
+    <div class = "addMoreInputsButton">
+       Add Another Input
+        
+    </div>
+    </form>
+    
 <label>Article Content</label>
+    <div class = "view">
+    
+    </div>
+    
+    <!-- this textarea will go into the database  -->
 <textarea id = "ta1" onkeyup = "generateView()">
 </textarea>
+    
 </div>
     
     <br>
