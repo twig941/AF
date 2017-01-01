@@ -1,3 +1,13 @@
+<?php
+require_once"init.php";
+$userReview = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
+//$userReview->createImageTable();
+echo $_FILES["userFiles"]["name"][0]
+
+?>
+
+
+
 <!DOCTYPE HTML>
 <html lang = "en">
 <head>
@@ -16,7 +26,20 @@
      $(".output-area").html(currentText);
     }
     
-     
+    function submitFiles() {
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      alert(xhttp.responseText);
+    }
+  };
+  xhttp.open("POST", "submitFiles.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+    
+    }
    
     
 $(document).ready(function() {
@@ -47,8 +70,17 @@ window.selWrap = function(id,startTag,endTag) {
     });
     
     /*add more inputs */
+    var numberOfAllowed = 15;
+    var fileCount = 1;
     $(".addMoreInputsButton").click(function() {
-        $(".fileContainer").append('<input id = "userImages" type = "file" name = "userFiles[]">');
+        if ((fileCount < numberOfAllowed)) {
+            $(".fileContainer").append('<input id = "userImages" type = "file" name = "userFiles[]">');
+        }
+        else {
+            alert("Maxiumum number of inputs reached");
+        }
+        
+        fileCount++;
     });
     
 });
@@ -59,6 +91,21 @@ window.selWrap = function(id,startTag,endTag) {
 <title> Login </title>
 </head>
 <body>
+    <div id = "demo">default</div>
+    <form method = "POST" enctype ="multipart/form-data" id = "userImages"> 
+    <label>Add An Image From Your Computer</label>
+    <div class = "fileContainer">
+    <input id = "userImages" type = "file" name = "userFiles[]">
+    
+    </div>
+    <div class = "addMoreInputsButton">
+       Add Another Input
+        
+    </div>
+        <input type = "submit" value = "submit" name = "fileSubmit" onclick="submitFiles()">
+        <br>
+    </form>
+    
 <form method = "POST" action = "" id ="userArticleForm">
 <div class="form-group">
       <label>Title Of Article</label>
@@ -90,16 +137,7 @@ window.selWrap = function(id,startTag,endTag) {
     
 </div>
     
-    <form method = "POST" action = "" enctype ="multipart/form-data" id = "userImages">
-    <label>Add An Image From Your Computer</label>
-    <div class = "fileContainer">
-    <input id = "userImages" type = "file" name = "userFiles[]">
-    </div>
-    <div class = "addMoreInputsButton">
-       Add Another Input
-        
-    </div>
-    </form>
+    
     
 <label>Article Content</label>
     <div class = "view">
