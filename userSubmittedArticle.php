@@ -2,8 +2,12 @@
 require_once"init.php";
 $userReview = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 //$userReview->createImageTable();
-echo $_FILES["userFiles"]["name"][0]
+//echo $_FILES["userFiles"]["name"][0]
+$userReview->createReviewTable();
 
+if (isset($_POST["submit-review"])) {
+    $userReview->insertReviewInfo($_POST["title"], $_POST["whoFor"], $_POST["editors"], $_POST["photoCredit"], $_POST["content"]);
+}
 ?>
 
 
@@ -91,6 +95,8 @@ window.selWrap = function(id,startTag,endTag) {
 <title> Login </title>
 </head>
 <body>
+    <!--
+add letting users upload images later
     <div id = "demo">default</div>
     <form method = "POST" enctype ="multipart/form-data" id = "userImages"> 
     <label>Add An Image From Your Computer</label>
@@ -105,24 +111,24 @@ window.selWrap = function(id,startTag,endTag) {
         <input type = "submit" value = "submit" name = "fileSubmit" onclick="submitFiles()">
         <br>
     </form>
-    
+    -->
 <form method = "POST" action = "" id ="userArticleForm">
 <div class="form-group">
       <label>Title Of Article</label>
-      <input type="text" class="form-control" placeholder="Article Title">
+      <input type="text" class="form-control" placeholder="Article Title" name = "title">
     </div>
     <!--next input would be the authors name, but this can be obtained from the database when the user first signed in -->
     <div class="form-group">
       <label>Who is This For?</label>
-      <input type="text" class="form-control" placeholder="Who is this for?">
+      <input type="text" class="form-control" placeholder="Who is this for?" name = "whoFor">
     </div>
 <div class="form-group">
       <label>Editors</label>
-      <input type="text" class="form-control" placeholder="Who editied the article">
+      <input type="text" class="form-control" placeholder="Who editied the article" name = "editors">
     </div>    
     <div class="form-group">
       <label>Photo Credit</label>
-      <input type="text" class="form-control" placeholder="credit for the photo">
+      <input type="text" class="form-control" placeholder="credit for the photo" name = "photoCredit">
     </div> 
 
 <div class="form-group">
@@ -145,13 +151,13 @@ window.selWrap = function(id,startTag,endTag) {
     </div>
     
     <!-- this textarea will go into the database  -->
-<textarea id = "ta1" onkeyup = "generateView()">
+<textarea id = "ta1" name = "content" onkeyup = "generateView()">
 </textarea>
     
 </div>
     
     <br>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button name = "submit-review" type="submit" class="btn btn-default">Submit</button>
     
 
   
