@@ -82,19 +82,20 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
          if (frameMargin === totalMarginOfVideo)
          */
             
-            
-            
             /* make the line margins equals to the frameMargin */
-            $("nav ul#main-list").css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
-            $(".separation").css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
+            function equalMargin(selector) {
+                $(selector).css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
+            }
             
-           $(".hover-menu").css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
-            $(".search-menu ").css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
-            $(".announcements-row").css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
             
-            $(".review").css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
-            
-                clearInterval(alignContent);
+            equalMargin("nav ul#main-list");
+            equalMargin(".separation");
+            equalMargin(".hover-menu");
+            equalMargin(".search-menu ");
+            equalMargin(".announcements-row");
+            equalMargin(".review");
+            equalMargin(".ad-images");
+            clearInterval(alignContent);
            }, 250);
             
             
@@ -108,6 +109,90 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
            
             $(".announcements-row").css("height", heightOfAnnouncement + "px");
             
+            
+            /*gets the total height of the review */
+            
+            function ReviewLayout() {
+                this.height = "1000px";
+                this.equalizeAd = function equalize() {
+                    $(".ad-images").css("height", this.height);
+                };
+                this.heightOfReview = function getReviewHeight() {
+                var height = $(".review").outerHeight(true) + "px";
+                this.height = height;
+            };
+                
+                
+            }
+            
+            var Review = new ReviewLayout();
+            Review.heightOfReview();
+            Review.equalizeAd();
+            
+            
+            
+ /*
+ use these functions like so
+ found at: http://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css
+<span class="stars">4.8618164</span>
+<span class="stars">2.6545344</span>
+<span class="stars">0.5355</span>
+<span class="stars">8</span>
+*/
+            $.fn.stars = function() {
+    return $(this).each(function() {
+        // Get the value
+        var val = parseFloat($(this).html());
+        // Make sure that the value is in 0 - 5 range, multiply to get width
+        var size = Math.max(0, (Math.min(5, val))) * 16;
+        // Create stars holder
+        var $span = $('<span />').width(size);
+        // Replace the numerical value with stars
+        $(this).html($span);
+    });
+}
+            
+            $(function() {
+    $('span.stars').stars();
+});
+            var originalValue = Number($(".stars").text());
+            $("#star1,#star2,#star3,#star4,#star5").mouseleave(function() {
+                var width = originalValue*16 + "px";
+                
+                $(".stars").html('<span style="width:' + width + '\"' + "</span>");
+            });
+            
+            $("#star1,#star2,#star3,#star4,#star5").mouseenter(function() {
+               var numberOfStar = Number(this.id.charAt(this.id.length-1));
+               
+               
+            if(numberOfStar == 1) {
+                $(".stars").html('<span style="width: 16px;"></span>');
+            }
+                
+           if(numberOfStar == 2) {
+                $(".stars").html('<span style="width: 32px;"></span>');
+            }     
+           
+           if(numberOfStar == 3) {
+                $(".stars").html('<span style="width: 48px;"></span>');
+            }    
+                
+            if(numberOfStar == 4) {
+                $(".stars").html('<span style="width: 64px;"></span>');
+            }  
+                
+            if(numberOfStar == 5) {
+                $(".stars").html('<span style="width: 80px;"></span>');
+            }      
+                
+            });
+            
+            $("#star1,#star2,#star3,#star4,#star5").click(function() {
+                var numberOfStar = Number(this.id.charAt(this.id.length-1));
+              
+                
+            });
       
         }); //end of document.ready
     </script>
@@ -178,8 +263,8 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
     
     </div>
     
-  <div class = "review">
-      <div class = "ad-images">IMAGE AD
+    
+    <div class = "ad-images">
       
           
       <!-- use js to calculate the height of the image -->    
@@ -192,6 +277,10 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
       <img src = http://www.publicdomainpictures.net/pictures/10000/nahled/1489-1248446570Quce.jpg>
       
       </div>
+    
+  <div class = "review">
+      
+      
       
 
       
@@ -246,8 +335,7 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         
 </div>
     
-   
-  
+
 
 </body>
 

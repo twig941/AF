@@ -5,6 +5,11 @@ padding: 0;
 border: 0;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 
 * {
 box-sizing: border-box;
@@ -512,6 +517,7 @@ font-weight: bold;
     margin-top: 2.5%;
   border-right: 1px solid black;
     padding-right: 3%;
+   overflow: auto;
 }
 
 .review-head, .review-title {
@@ -520,13 +526,68 @@ font-weight: bold;
     font-size: 20px;
 }
 
+.review-numberViewed, .review-author, .review-whoFor, .review-editor, .review-photoCredit {
+    color: darkgray;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+ 
+
+.review-body {
+    font-size: 16px;
+    color: black;
+}
+
 .ad-images {
   position:absolute;
   padding-left: 2%;
   left: 62%;
+  margin-top: 2.5%; /*same as the margin-top from the review */
 }
 
 .ad-images img {
     width: 100%;
-    height: 200px;
+    height: 20%; /*max amount of images is 4*/
+    margin-top: 3%;
 }
+
+span.stars, span.stars span {
+    display: block;
+    background: url(stars.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+#star1, #star2, #star3, #star4, #star5 {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#star1 {
+    left: 0px;
+}
+
+#star2 {
+    left: 16px;
+}
+
+#star3 {
+    left: 32px;
+}
+
+#star4 {
+    left: 48px;
+}
+
+#star5 {
+    left: 64px;
+}
+

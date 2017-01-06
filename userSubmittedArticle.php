@@ -1,7 +1,7 @@
 <?php
 require_once"init.php";
 $userReview = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
-//$userReview->createImageTable();
+$userReview->createImageTable();
 //echo $_FILES["userFiles"]["name"][0]
 $userReview->createReviewTable();
 

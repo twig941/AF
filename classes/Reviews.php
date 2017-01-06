@@ -23,6 +23,7 @@ class Reviews extends Database {
         editors VARCHAR(1000) NOT NULL,
         photoCredit VARCHAR(1000) NOT NULL,
         Content MEDIUMTEXT NOT NULL,
+        articleRating FLOAT(3, 2) DEFAULT 5,
         pageviews INT(11) DEFAULT 0
         )";
         $this->connection->query($query);
@@ -58,6 +59,28 @@ class Reviews extends Database {
                 echo "<div class = 'review-photoCredit'>";
                 echo "Photo Credit: " . $row["photoCredit"];
                 echo "</div>";
+                echo '  <div>
+    <span id = "star1">
+       </span>
+       
+       <span id = "star2">
+       </span>
+       
+       <span id = "star3">
+       </span>
+       
+       <span id = "star4">
+       </span>
+       
+       <span id = "star5">
+       </span>
+       
+<span class="stars">' . $row["articleRating"] .
+    
+ 
+'</span>
+       
+       </div>';
                 echo "<div class = 'review-body'>";
                 echo $row["Content"];
                 echo "</div>";
