@@ -8,6 +8,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 <!DOCTYPE HTML>
 <html lang = "en">
 <head>
+<link rel="shortcut icon" href="favicon-32x32.png">
 <meta charset = "utf-8">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> for mobile -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    <!-- Jquery library -->

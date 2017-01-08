@@ -25,7 +25,12 @@
 	<tr>
 		<td>User Name:</td>
 		<td><input type="text" name="txt_user" class="textInput"></td>
-	</tr>	
+	</tr>
+    
+    <tr>
+		<td>Full Name:</td>
+		<td><input type="email" name="full_name" class="textInput"></td>
+	</tr>
 	
 	<tr>
 		<td>Email ID:</td>

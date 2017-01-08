@@ -4,10 +4,14 @@
 require_once"init.php";
 $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");    
-
 $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
+$session = new Session();
 $validateURL = new Validate();
-if ($validateURL->isValidIdUrl($_GET["id"])) {}
+$comments = new Comments("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
+if (isset($_GET["id"])) {
+    if ($validateURL->isValidIdUrl($_GET["id"])) {}
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -102,6 +106,7 @@ if ($validateURL->isValidIdUrl($_GET["id"])) {}
             equalMargin(".review");
             equalMargin(".ad-images");
             equalMargin("#star1,#star2,#star3,#star4,#star5");
+            equalMargin(".comment-section");
             clearInterval(alignContent);
            }, 250);
             
@@ -358,7 +363,24 @@ if ($validateURL->isValidIdUrl($_GET["id"])) {}
     </div>
         
     
-   
+   <div class = "comment-section">
+    <div class = "comment-intro">Share Your Thoughts</div>
+    <?php
+       if ($session->is_session_started()) {
+           $comments->allowUserComments();
+       }
+       else {
+           echo "<a href =''>login to view comments</a>";
+       }
+       
+    ?>
+    
+    </div>
+    
+    <div class = "separation">
+       
+    </div>
+
     
 <div class = "aside">
         
