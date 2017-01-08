@@ -3,6 +3,7 @@ body {
 margin: 0;
 padding: 0;
 border: 0;
+    background: #fff;
 }
 
 html {
@@ -26,8 +27,9 @@ border: 0;
 /* the twitter, fb, instagram, and search button are all images */
 
 .header-widgets {
+    margin-top: 96px; /*requirment of an inch of whitespace above */
     background-color: black;
-    height: 200px;
+    height: 96px; /*requirment of it to be no more than an inch tall*/
     width: 100%;
     padding-bottom: 1%;
 }
@@ -42,8 +44,8 @@ border: 0;
 
 .header-widgets .logo {
     float: left;
-    height: 200px !important;
-    width: 20%;
+    height: 96px !important;
+    width: 15%;
 }
 
 .right-container {
@@ -77,30 +79,20 @@ position: relative;
 }
 
 .login-button1 {
-    top: 65px; /* height of the icons + .right-container height*/
+    top: 160px;
     right: 0;
     margin-right: 3%;
     position: absolute;
     color: white;
     font-weight: 600;
     font-size: 20px;
-    letter-spacing: .9px;
-    margin-top: 20px;
-}
-
-.login-button2 {
-      top: 125px; /*the height of the social media icons + the font-size of the login button + .right-container height*/
-    right: 0;
-    margin-right: 3%;
-    position: absolute;
-    color: white;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: .9px;
+     word-spacing: 30px;
 }
 
 
-.header-widgets img:hover {
+
+
+.header-widgets img:not(.logo):hover {
         animation: spinAround;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -120,8 +112,7 @@ nav {
 
 nav ul {
     list-style-type: none;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #e8e8e8;
     padding-bottom: 1%;
     padding-top: 1%;
     margin-top: 3px;
@@ -135,7 +126,7 @@ nav ul li {
 }
 
 nav ul li a {
- font-size: 100%;
+ font-size: 170%;
     color: black;
     font-weight: 700;
 }
@@ -189,14 +180,14 @@ nav ul li:hover .hover-menu {
 .search-bar {
     cursor: pointer;
 }
-
+/*
 .search-bar:hover {
     font-size: 1.2em;
 }
-
+*/
 .search-menu {
     display: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #e8e8e8;
     padding-top: 1%;
     padding-bottom: 1%;
     margin-bottom: 1%;
@@ -209,8 +200,8 @@ nav ul li:hover .hover-menu {
 .search-menu form input:first-child {
     width: 100%;
      outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
+    border-color: #A8A8A8;
+    box-shadow: 0 0 10px #A8A8A8;
    text-align:center;
     color:black;
 }
@@ -453,6 +444,14 @@ font-weight: bold;
     color: black;
 }
 
+.non-profit-info {
+    clear: both;
+    text-align: center;
+    font-weight: 600;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+
 /*
 
 .announcement-ad-row {
@@ -505,10 +504,10 @@ font-weight: bold;
 */
 
 .separation {
-    border-top: 1.5px solid black;
+    border-top: 1px solid #e8e8e8;
     /* the top and the bottom are half and inch since 1inch = 96px */
     margin-top: 48px;
-    margin-bottom: 48px;
+    margin-bottom: 96px;
 }
 
 .review {
@@ -589,5 +588,9 @@ span.stars span {
 
 #star5 {
     left: 64px;
+}
+
+.not-nav {
+    margin-top: 0px;
 }
 

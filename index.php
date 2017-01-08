@@ -30,7 +30,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             var imageToShow = ["#image1", "#image2", "#image3", "#image4"];
             var currentCircule = ["#circle1", "#circle2", "#circle3", "#circle4"];
             var animationOutTime = 0;
-            var animationTime = 200;
+            var animationTime = 450;
             this.getCurrentCircle = function() {
                return currentCircule;
             };
@@ -198,7 +198,14 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
            
             $(".announcements-row").css("height", heightOfAnnouncement + "px");
             
+            
+            $("nav ul li a").mouseenter(function() {
+                $(".not-nav").css("margin-top", "100px");
+            });
       
+            $("nav ul li a").mouseleave(function() {
+                $(".not-nav").css("margin-top", "0px");
+            });
         }); //end of document.ready
     </script>
        <!-- header widgets like the donate button, facebook, twitter, and youtube icons -->
@@ -211,9 +218,9 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
     <span class = "login-button"> LOG IN </span>    
      </div>  
         <div>
-        <span class = "login-button1">SUBSCRIBE</span>
+        <div class = "login-button1">DONATE SUBSCRIBE</div>
       
-        <span class = "login-button2">DONATE</span>
+        <span class = "login-button2"></span>
             </div>
         <img class = "logo" src ="300dpi_WHITEtrans_TokyoNYC-05.png">
       <i class = "mission-statement">media, events, and competetions for artists</i>
@@ -263,11 +270,13 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         <form>
         <input placeholder="Search The Site" type = "text" name = "search-site">
         <br>
-        <input type = "submit" value = "Submit">
+        <button style="border: 0; background: transparent" type = "submit"><span style = "margin-top: 5px;" class = "glyphicon glyphicon-search"></button></span>
         </form>
     
     </div>
     
+    
+    <div class = "not-nav">
     <div class = "rotating-area">
         <div class = "hover-height-left">
     <span class = "glyphicon glyphicon-menu-left"> </span> 
@@ -446,10 +455,12 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 <div>PARTNERING</div> 
 </div>
         
+    <div class = "non-profit-info">THE ARTISTS FORUM, INC. is a 501(c)3 New York State not-for-profit arts services organization
+specializing in media, events, and juried competitions for artists.</div>
         
 </div>
     
-    
+    </div>
   
 
 </body>
