@@ -6,8 +6,10 @@ $userReview->createImageTable();
 $userReview->createReviewTable();
 
 if (isset($_POST["submit-review"])) {
-    $userReview->insertReviewInfo($_POST["title"], $_POST["whoFor"], $_POST["editors"], $_POST["photoCredit"], $_POST["content"]);
+    $userReview->insertReviewInfo($userReview->sanitizeDatabaseInput($_POST["title"]), $userReview->sanitizeDatabaseInput($_POST["whoFor"]), $userReview->sanitizeDatabaseInput($_POST["editors"]), $userReview->sanitizeDatabaseInput($_POST["photoCredit"]), $userReview->cleanReview($_POST["content"]));
 }
+
+
 ?>
 
 
@@ -95,7 +97,7 @@ window.selWrap = function(id,startTag,endTag) {
 <title> Login </title>
 </head>
 <body>
-    <!--
+    
 add letting users upload images later
     <div id = "demo">default</div>
     <form method = "POST" enctype ="multipart/form-data" id = "userImages"> 
@@ -111,7 +113,7 @@ add letting users upload images later
         <input type = "submit" value = "submit" name = "fileSubmit" onclick="submitFiles()">
         <br>
     </form>
-    -->
+
 <form method = "POST" action = "" id ="userArticleForm">
 <div class="form-group">
       <label>Title Of Article</label>

@@ -1,10 +1,13 @@
 <?php
+
+
 require_once"init.php";
 $a = new Announcement("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");    
 
 $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
-
+$validateURL = new Validate();
+if ($validateURL->isValidIdUrl($_GET["id"])) {}
 ?>
 
 <!DOCTYPE HTML>
@@ -87,6 +90,9 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
                 $(selector).css({"margin-left": totalMarginOfVideo, "margin-right": totalMarginOfVideo});
             }
             
+
+           
+            
             
             equalMargin("nav ul#main-list");
             equalMargin(".separation");
@@ -95,6 +101,7 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             equalMargin(".announcements-row");
             equalMargin(".review");
             equalMargin(".ad-images");
+            equalMargin("#star1,#star2,#star3,#star4,#star5");
             clearInterval(alignContent);
            }, 250);
             
@@ -193,6 +200,46 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
               
                 
             });
+            
+             $("#star1,#star2,#star3,#star4,#star5").click(function() {
+               var numberOfStar = Number(this.id.charAt(this.id.length-1));
+               
+               
+           
+                
+            });
+            
+        function insertRating(rating) {
+            var id = <?php
+                
+                if (isset($_GET["id"]) && $validateURL->isValidIdUrl($_GET["id"])) {
+                    echo $_GET["id"];
+                }
+                else {
+                    echo $review->getLastId();
+                }
+                    
+                
+                
+                ?>;
+                var queryString = "userRating=" + rating +"&id=" + id;
+                var request;
+                request = $.ajax({
+                    url:"rateReview.php",
+                    type: "POST",
+                    data: queryString,
+               });
+                
+            request.done(function(response) {
+                    $("#rating").text("RATING " + response + " OUT OF 5");
+              
+               });
+                                        }
+            
+            $("#star1,#star2,#star3,#star4,#star5").click(function() {
+                var rate = Number(this.id.charAt(this.id.length-1));
+              insertRating(rate);
+            });
       
         }); //end of document.ready
     </script>
@@ -282,15 +329,15 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
       
       
       
-
       
       
       <div class = "review-head">
       AF MAG: REVIEWS/PREVIEWS
         </div>
     <?php
-    if (isset($_GET["id"])) {
-      /* select the review associated with the url query string */
+    if (isset($_GET["id"]) && $validateURL->isValidIdUrl($_GET["id"])) {
+        $id = $review->sanitizeDatabaseInput($_GET["id"]);
+      $review->displayReview($id);
     }
       else {
           $review->displayReview($review->getLastId());

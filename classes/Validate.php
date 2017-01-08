@@ -8,14 +8,14 @@ class Validate {
         $this->password = $password;
     }
     
-    function isEmail() {
-        /*
-        checks if something is a valid email address
-        */
-        if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) return true;
+    /*checks if the url query string is valid when searching by an id*/
+    function isValidIdUrl($GET_ID) {
+        if ($GET_ID > 0) {
+            return true;
+        }
+        die("404 error page could not be found please enter a valid ID");
         return false;
     }
-    
     
     
     

@@ -23,10 +23,24 @@ class Reviews extends Database {
         editors VARCHAR(1000) NOT NULL,
         photoCredit VARCHAR(1000) NOT NULL,
         Content MEDIUMTEXT NOT NULL,
-        articleRating FLOAT(3, 2) DEFAULT 5,
+        articleRating FLOAT(11, 2) DEFAULT 5,
+        timesRated INT(11) DEFAULT 1,
         pageviews INT(11) DEFAULT 0
         )";
         $this->connection->query($query);
+    }
+    
+    
+    /**
+    *the review contains will allow some html tags
+    *all inline javascript events will be filtered out
+    */
+    function cleanReview($data) {
+        $data = $this->connection->real_escape_string($data);
+        $data = strip_tags($data, '<br><img>');
+        $forbidden_javascript = array("onafterprint", "onbeforeprint", "onbeforeunload", "onerror", "onhashchange", "onload", "onmessage", "onoffline", "ononline", "onpagehide", "onpageshow", "onpopstate", "onresize", "onstorage", "onunload", "onblur", "onchange", "oncontextmenu", "onfocus", "oninput", "oninvalid", "onreset", "onsearch", "onselect", "onsubmit", "onkeydown", "onkeypress", "onkeyup", "onclick", "ondblclick", "onmousedown", "onmousemove", "onmouseout", "onmouseover", "onmouseup", "onmousewheel", "onwheel", "ondrag", "ondragend", "ondragenter", "ondragleave", "ondragover", "ondragstart", "ondrop", "onscroll", "oncopy", "oncut", "onpaste", "onabort", "oncanplay", "oncanplaythrough", "oncuechange", "ondurationchange", "onemptied", "onended", "onerror", "onloadeddata", "onloadedmetadata", "onloadstart", "onpause", "onplay", "onplaying", "onprogress", "onratechange", "onseeked", "onseeking", "onstalled", "onsuspend", "ontimeupdate", "onvolumechange", "onwaiting", "onshow", "ontoggle");
+        $data = str_replace($forbidden_javascript, "", $data);
+        return $data;
     }
     
     function insertReviewInfo($title, $whoFor, $editors, $photoCredit, $content) {
@@ -60,25 +74,25 @@ class Reviews extends Database {
                 echo "Photo Credit: " . $row["photoCredit"];
                 echo "</div>";
                 echo '  <div>
-    <span id = "star1">
+    <span id = "star1" title = "Click to Rate">
        </span>
        
-       <span id = "star2">
+       <span id = "star2" title = "Click to Rate">
        </span>
        
-       <span id = "star3">
+       <span id = "star3" title = "Click to Rate">
        </span>
        
-       <span id = "star4">
+       <span id = "star4" title = "Click to Rate">
        </span>
        
-       <span id = "star5">
+       <span id = "star5" title = "Click to Rate">
        </span>
        
-<span class="stars">' . $row["articleRating"] .
+<span class="stars">' . $this->getRating($id) .
     
  
-'</span>
+'</span>' . "<span id ='rating'>" . "RATING " . number_format($this->getRating($id),2) . " OUT OF 5 </span>" . '
        
        </div>';
                 echo "<div class = 'review-body'>";
@@ -97,6 +111,31 @@ class Reviews extends Database {
             settype($id, "integer");
             return $id;
         }
+        
+    }
+    
+    
+    /**
+    computes the rating of the article
+    */
+    function getRating($id) {
+        $query = "SELECT articleRating, timesRated FROM reviewinfo WHERE id = $id";
+        if ($result = $this->connection->query($query)) {
+            $row = $result->fetch_assoc();
+            return number_format($row["articleRating"] / $row["timesRated"],2);
+        }
+    }
+    
+    function incrementField($field, $id, $value) {
+        $query = "SELECT $field FROM reviewInfo WHERE id = $id";
+        if ($result = $this->connection->query($query)) {
+            $row = $result->fetch_assoc();
+           $fieldNameValue = $row[$field];
+            settype($fieldNameValue, "float");
+            $fieldNameValue +=$value;
+            $query2 = "UPDATE reviewInfo SET $field = $fieldNameValue WHERE id = $id";
+            $this->connection->query($query2);
+    }
         
     }
     
