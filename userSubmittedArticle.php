@@ -1,7 +1,7 @@
 <?php
 require_once"init.php";
 $userReview = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
-$userReview->createImageTable();
+
 //echo $_FILES["userFiles"]["name"][0]
 $userReview->createReviewTable();
 
@@ -32,20 +32,7 @@ if (isset($_POST["submit-review"])) {
      $(".output-area").html(currentText);
     }
     
-    function submitFiles() {
-
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      alert(xhttp.responseText);
-    }
-  };
-  xhttp.open("POST", "submitFiles.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send();
-
-    
-    }
+   
    
     
 $(document).ready(function() {
@@ -98,8 +85,7 @@ window.selWrap = function(id,startTag,endTag) {
 </head>
 <body>
     
-add letting users upload images later
-    <div id = "demo">default</div>
+
     <form method = "POST" enctype ="multipart/form-data" id = "userImages"> 
     <label>Add An Image From Your Computer</label>
     <div class = "fileContainer">
@@ -110,7 +96,7 @@ add letting users upload images later
        Add Another Input
         
     </div>
-        <input type = "submit" value = "submit" name = "fileSubmit" onclick="submitFiles()">
+        <input type = "submit" value = "submit" name = "fileSubmit">
         <br>
     </form>
 
