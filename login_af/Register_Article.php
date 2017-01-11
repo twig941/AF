@@ -1,12 +1,55 @@
 <?php
 
-	session_start();
-	$db= mysql_connect("localhost", "root", " ","login_af"); 
-	if(isset($_post['register_btn']))
+//remove quotes aroound INSERT INTO `registration_article`(`name`,`username`,`email`,`password`)
+//change action to "" for it to submit to the same file
+//to make a mysqli object it is just new mysqli not new mysqli_connect
+//$_POST superglobal must be capital
+
+	$connection =  new mysqli("localhost","AlexG", "Ducktalesz1","THE_ARTISTS_FORUM");
+
+
+/*
+    $tableQuery = "CREATE TABLE IF NOT EXISTS registration_article (
+    ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+    )";
+
+    $connection->query($tableQuery);
+	*/
+	if(isset($_POST['register_btn']))
 	{
-		$username=$_post['txt_user'];
-		$email=$_post['txt_email'];
+		
+		
+		$name=$_POST['txt_name'];
+		$username=$_POST['txt_user'];
+		$email=$_POST['txt_email'];
+		$password=$_POST['password'];
+		
+		$query = "INSERT INTO `registration_article`(name,username,email,password) VALUES ( '$name', '$username', '$email', '$password')";
+        
+        if (!$query) {
+            echo "error" . mysqli_error($connection);
+        }
+		if($connection->query($query))
+		{
+			
+			echo " You are successfully registred.";
+		}
+		else
+		{
+			echo "You are not registred.";
+		}
+		
+	    
+		
 	}
+
+	
+	mysqli_close($connection);
+
 
 ?>
 
@@ -18,19 +61,20 @@
 <html>
 <head><title> Login For Write a Review</title></head>
 <body>
-<h3> Login for Post the Article</h3>
+<h2><center> Login for Post the Article</center></h2>
 
-<form method="post" action="Register_Article">
+<form  action="" method="post">
 <table align="center"> 
+<tr>
+		<td>Full Name:</td>
+		<td><input type="text" name="txt_name" class="textInput"></td>
+	</tr>
+	
 	<tr>
-		<td>User Name:</td>
+		<td>UserName:</td>
 		<td><input type="text" name="txt_user" class="textInput"></td>
 	</tr>
-    
-    <tr>
-		<td>Full Name:</td>
-		<td><input type="email" name="full_name" class="textInput"></td>
-	</tr>
+	
 	
 	<tr>
 		<td>Email ID:</td>
