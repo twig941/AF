@@ -77,7 +77,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
             var iFrameMargin = $(window).width()/100;
             var widthOfButton = $(".carousel-control-prev-icon").width();
             var totalMarginOfVideo = iFrameMargin + widthOfButton;
-            alert(totalMarginOfVideo);
+            
             
             /*code removed when the arrows were added to the video keep in case of bug for the moment
          var frameMargin = $("iframe").css("margin-left", totalMarginOfVideo + "px");
