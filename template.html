@@ -66,7 +66,25 @@
             
             /*aligns the video to the image slide by taking the width of the button and the margin-left of the slide and making that the margin left of the video */
           
-        
+        var alignContent = setInterval(function(){
+            var iFrameMargin = $(window).width()/100;
+            
+            var totalMarginOfVideo = iFrameMargin;
+            
+            
+            /*code removed when the arrows were added to the video keep in case of bug for the moment
+         var frameMargin = $("iframe").css("margin-left", totalMarginOfVideo + "px");
+         if (frameMargin === totalMarginOfVideo)
+         */
+            
+            
+            
+            /* make the line margins equals to the frameMargin */
+     
+            var margin3Percent = ($(window).width()/100)*3;
+            var loginButtonMarin = totalMarginOfVideo + margin3Percent + 30; //30 for the body marginsa
+            
+            $(".login-button1").css("margin-right", loginButtonMarin);
             
                 clearInterval(alignContent);
            }, 250);
@@ -150,9 +168,6 @@
     
     </div>
     
-    
     do stuff
-    
-   
     </body>
 </html>
