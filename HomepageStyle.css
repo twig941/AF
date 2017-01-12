@@ -63,7 +63,7 @@ position: relative;
 .mission-statement {
     color: white;
     position: relative;
-    top: 50%;
+    top: 35%;
     font-weight: 600;
 }
 
@@ -347,15 +347,15 @@ font-weight: bold;
 .non-profit-info {
     clear: both;
     text-align: center;
-    font-weight: 600;
     margin-left: 22%;
     margin-right: 22%;
+    margin-bottom: 96px; /*1 inch of whitespace requirement */
 }
 
 .separation {
     border-top: 1px solid #e8e8e8;
     /* the top and the bottom are half and inch since 1inch = 96px */
-    margin-top: 48px;
+    margin-top: 96px;
     margin-bottom: 96px;
 }
 
@@ -510,12 +510,10 @@ font-weight: bold;
     font-size: 16px;
 }
 
-#video-preview {
-    top: 135px;
-}
+
 
 #member-titles {
-    top: 90px;
+    top: 45px;
     position: relative;
     font-size: 170%;
 font-weight: bold;
@@ -534,6 +532,14 @@ top: 10px;
 
 h3 {
     font-size: 170%;
+}
+
+.comment-section {
+    text-align: center;
+}
+
+.article-comments {
+    text-align: center;
 }
 
 

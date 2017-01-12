@@ -8,6 +8,7 @@ $review = new Reviews("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
 $session = new Session();
 $validateURL = new Validate();
 $comments = new Comments("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
+//$comments->createCommentsTable();
 if (isset($_GET["id"])) {
     if ($validateURL->isValidIdUrl($_GET["id"])) {}
 }
@@ -370,12 +371,20 @@ if (isset($_GET["id"])) {
            $comments->allowUserComments();
        }
        else {
-           echo "<a href =''>login to view comments</a>";
+           $comments->allowStrangerComments();
        }
        
     ?>
+       
+    <div class = "article-comments">
+    
+       
+       
+    </div>
     
     </div>
+    
+    
     
     <div class = "separation">
        

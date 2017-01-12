@@ -129,7 +129,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         
             </div>
         <img class = "logo" src ="300dpi_WHITEtrans_TokyoNYC-05.png">
-      <i class = "mission-statement">media, events, and competetions for artists</i>
+      <i class = "mission-statement">media, events, and competitions for artists</i>
         
     
       
@@ -272,9 +272,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
       <div class="carousel-caption">
         <h3 id = "type-of-content">AFTV #</h3>
       </div>
-      <div class="carousel-caption">
-        <h3 id = "review-title">ARTISTS TEAM MEMBERS</h3>
-      </div>
+      
         
         <div class="carousel-caption">
         <h3 id = "member-titles">Title</h3>
@@ -293,9 +291,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
          <div class="carousel-caption">
         <h3 id = "type-of-content">AFTV #</h3>
       </div>
-      <div class="carousel-caption">
-        <h3 id = "review-title">ARTISTS TEAM MEMBERS</h3>
-      </div>
+     
         
         <div class="carousel-caption">
         <h3 id = "member-titles">Title</h3>
@@ -314,9 +310,7 @@ $ad = new Ad("localhost", "AlexG", "Ducktalesz1", "THE_ARTISTS_FORUM");
         <div class="carousel-caption">
         <h3 id = "type-of-content">AFTV #</h3>
       </div>
-      <div class="carousel-caption">
-        <h3 id = "review-title">ARTISTS TEAM MEMBERS</h3>
-      </div>
+      
         
       <div class="carousel-caption">
         <h3 id = "member-titles">Title</h3>
